@@ -1,0 +1,10 @@
+{
+  "name": "Observer",
+  "category": "Behavioral",
+  "intent": "Define a one-to-many dependency between objects so that when one object changes state, all its dependents are notified and updated automatically.",
+  "alsoKnownAs": ["Dependents", "Publish-Subscribe"],
+  "tags": ["behavioral", "event", "notification", "reactive"],
+  "relatedPatterns": ["Mediator", "Singleton"],
+  "complexity": "medium",
+  "popularity": "high"
+}

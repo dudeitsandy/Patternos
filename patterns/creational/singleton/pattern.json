@@ -1,0 +1,10 @@
+{
+  "name": "Singleton",
+  "category": "Creational",
+  "intent": "Ensure a class has only one instance and provide a global access point to it.",
+  "alsoKnownAs": ["Single-instance"],
+  "tags": ["creational", "instance-management", "global-state"],
+  "relatedPatterns": ["Abstract Factory", "Builder", "Prototype"],
+  "complexity": "low",
+  "popularity": "high"
+}

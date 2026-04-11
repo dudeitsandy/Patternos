@@ -1,0 +1,10 @@
+{
+  "name": "Adapter",
+  "category": "Structural",
+  "intent": "Convert the interface of a class into another interface that clients expect.",
+  "alsoKnownAs": ["Wrapper"],
+  "tags": ["structural", "interface", "compatibility", "wrapper"],
+  "relatedPatterns": ["Bridge", "Decorator", "Proxy"],
+  "complexity": "medium",
+  "popularity": "high"
+}
