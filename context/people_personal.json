@@ -1,0 +1,54 @@
+{
+  "version": 2.1,
+  "last_updated": "2026-04-04",
+  "note": "Personal CRM — MIRROR's domain. Friends, family, mentors. Not professional contacts.",
+
+  "relationship_health_context": {
+    "note": "Pain point identified: relationships get maintenance-only attention during high-load work periods. The goal is not just cadence compliance — it's genuine reflection and meaningful contact, not surface check-ins.",
+    "mirror_mandate": "MIRROR surfaces people for outreach AND prompts reflection on whether the last contact was meaningful. Logistics and surface check-ins do not count against the cadence clock.",
+    "risk_periods": "Active job search, hackathon, race prep, high Atlassian load — these are the windows where personal relationships most commonly get dropped. Flag proactively."
+  },
+
+  "tiers": {
+    "inner_circle": {
+      "description": "5–8 people max. Weekly cadence. MIRROR flags if 2+ weeks pass.",
+      "people": [
+        {
+          "name": "Jessica Styx",
+          "tier": "inner_circle",
+          "relationship": "spouse",
+          "location": "Libertyville, IL",
+          "target_cadence": "weekly"
+        },
+        {
+          "name": "Grace Styx",
+          "tier": "inner_circle",
+          "relationship": "daughter",
+          "notes": "4th grade; teacher is Mrs. Redden."
+        },
+        {
+          "name": "Luke Styx",
+          "tier": "inner_circle",
+          "relationship": "son",
+          "notes": "2nd grade; teacher is Mrs. Steinhauser."
+        }
+      ]
+    },
+    "close": {
+      "description": "10–20 people. Monthly cadence. MIRROR surfaces at 6+ weeks without contact.",
+      "people": []
+    },
+    "maintain": {
+      "description": "20–50 people. Quarterly check-in. Birthdays, big moments, occasional drops.",
+      "people": []
+    },
+    "peripheral": {
+      "description": "No cadence. MIRROR stores context for when you reconnect organically.",
+      "people": []
+    }
+  },
+
+  "schema": {
+    "note": "Use this structure for each person entry."
+  }
+}

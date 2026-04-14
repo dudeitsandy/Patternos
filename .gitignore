@@ -1,0 +1,5 @@
+n8n-data/
+claudeupdates/
+*.log
+.DS_Store
+Thumbs.db

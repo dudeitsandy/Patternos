@@ -1,0 +1,1627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PatternOS — System Expansion</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #09090f;
+  --surface: #0f0f18;
+  --surface2: #14141f;
+  --border: #1c1c2e;
+  --border2: #252538;
+
+  --text: #e2e0f0;
+  --muted: #6b6882;
+  --faint: #2a2840;
+
+  /* Gap colors */
+  --gap1: #e8535a; /* No Engine — red */
+  --gap2: #4db8d4; /* Relationships — cyan */
+  --gap3: #7dc97a; /* Hobbies — green */
+  --gap4: #e8a94b; /* Health — amber */
+  --gap5: #9b7fe8; /* Career Compass — violet */
+  --gap6: #e87eb0; /* Energy — pink */
+
+  /* New agents */
+  --agent-filter: #e8535a;
+  --agent-mirror: #4db8d4;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+/* Animated background grid */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(155,127,232,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(155,127,232,0.03) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Header */
+header {
+  padding: 56px 48px 44px;
+  position: relative;
+  z-index: 1;
+  border-bottom: 1px solid var(--border);
+}
+
+.header-pre {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-pre::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--gap1);
+}
+
+h1 {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.h1-em { color: var(--gap5); font-style: normal; }
+
+.header-sub {
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 580px;
+  margin-top: 16px;
+  line-height: 1.75;
+}
+
+.gap-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  background: rgba(232,83,90,0.1);
+  border: 1px solid rgba(232,83,90,0.25);
+  color: var(--gap1);
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  padding: 6px 14px;
+}
+
+/* Nav */
+.tab-nav {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+}
+
+.tab-nav button {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 16px 24px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s;
+  position: relative;
+  top: 1px;
+}
+
+.tab-nav button:hover { color: var(--text); }
+.tab-nav button.active { color: var(--text); border-bottom-color: var(--gap5); }
+
+/* Content */
+.tab-content { display: none; padding: 48px; position: relative; z-index: 1; }
+.tab-content.active { display: block; }
+
+/* Section label */
+.section-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* Callout */
+.callout {
+  border: 1px solid var(--border2);
+  border-left: 3px solid var(--gap5);
+  background: var(--surface);
+  padding: 18px 22px;
+  margin-bottom: 36px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.callout strong { color: var(--text); font-weight: 500; }
+
+/* Gap audit cards */
+.gap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 48px;
+}
+
+.gap-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 6px 1fr;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.gap-item:hover { border-color: var(--border2); }
+
+.gap-stripe { width: 6px; }
+.gap-item[data-gap="1"] .gap-stripe { background: var(--gap1); }
+.gap-item[data-gap="2"] .gap-stripe { background: var(--gap2); }
+.gap-item[data-gap="3"] .gap-stripe { background: var(--gap3); }
+.gap-item[data-gap="4"] .gap-stripe { background: var(--gap4); }
+.gap-item[data-gap="5"] .gap-stripe { background: var(--gap5); }
+.gap-item[data-gap="6"] .gap-stripe { background: var(--gap6); }
+
+.gap-body { padding: 22px 28px; }
+
+.gap-header {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.gap-id {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.gap-item[data-gap="1"] .gap-id { color: var(--gap1); }
+.gap-item[data-gap="2"] .gap-id { color: var(--gap2); }
+.gap-item[data-gap="3"] .gap-id { color: var(--gap3); }
+.gap-item[data-gap="4"] .gap-id { color: var(--gap4); }
+.gap-item[data-gap="5"] .gap-id { color: var(--gap5); }
+.gap-item[data-gap="6"] .gap-id { color: var(--gap6); }
+
+.gap-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--text);
+}
+
+.gap-severity {
+  margin-left: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid;
+}
+
+.sev-critical { color: var(--gap1); border-color: rgba(232,83,90,0.3); background: rgba(232,83,90,0.08); }
+.sev-high { color: var(--gap4); border-color: rgba(232,169,75,0.3); background: rgba(232,169,75,0.08); }
+.sev-med { color: var(--gap3); border-color: rgba(125,201,122,0.3); background: rgba(125,201,122,0.08); }
+
+.gap-desc {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.75;
+  margin-bottom: 12px;
+}
+
+.gap-fix {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--text);
+  opacity: 0.6;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gap-fix::before {
+  content: '→ fix:';
+  opacity: 0.4;
+}
+
+/* New agent cards */
+.new-agent {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.agent-header {
+  padding: 24px 28px 20px;
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: start;
+}
+
+.agent-id-line {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.filter-col .agent-id-line { color: var(--agent-filter); }
+.mirror-col .agent-id-line { color: var(--agent-mirror); }
+
+.agent-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 32px;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1;
+}
+
+.agent-tagline {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 6px;
+  font-style: italic;
+}
+
+.agent-model {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  text-align: right;
+  line-height: 1.8;
+}
+
+.agent-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+}
+
+@media (max-width: 768px) {
+  .agent-body { grid-template-columns: 1fr; }
+  header, .tab-content { padding: 24px 20px; }
+  .gap-body { padding: 18px 20px; }
+  .tab-nav button { padding: 14px 16px; }
+}
+
+.agent-col {
+  padding: 22px 24px;
+  border-right: 1px solid var(--border);
+}
+
+.agent-col:last-child { border-right: none; }
+
+.col-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.col-item {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.6;
+  align-items: flex-start;
+}
+
+.col-item::before {
+  content: '·';
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.filter-col .col-item::before { color: var(--agent-filter); }
+.mirror-col .col-item::before { color: var(--agent-mirror); }
+
+/* Decision framework */
+.decision-tree {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+.dt-question {
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--text);
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.dt-row {
+  display: grid;
+  grid-template-columns: 32px 1fr auto;
+  gap: 16px;
+  align-items: start;
+  margin-bottom: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--faint);
+}
+
+.dt-row:last-child { border-bottom: none; margin-bottom: 0; }
+
+.dt-num {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  padding-top: 2px;
+}
+
+.dt-criterion {
+  font-size: 13px;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.dt-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 3px;
+  font-style: italic;
+}
+
+.dt-verdict {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  white-space: nowrap;
+}
+
+.verdict-kill { background: rgba(232,83,90,0.1); color: var(--gap1); border: 1px solid rgba(232,83,90,0.2); }
+.verdict-flag { background: rgba(232,169,75,0.1); color: var(--gap4); border: 1px solid rgba(232,169,75,0.2); }
+.verdict-pass { background: rgba(125,201,122,0.1); color: var(--gap3); border: 1px solid rgba(125,201,122,0.2); }
+
+.scoring-bar {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 24px 28px;
+  margin-bottom: 16px;
+}
+
+.score-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.score-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.score-name {
+  font-size: 12px;
+  color: var(--text);
+  min-width: 160px;
+}
+
+.score-bar-wrap {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  position: relative;
+}
+
+.score-bar-fill {
+  height: 100%;
+  background: var(--gap5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: width 0.6s ease;
+}
+
+.score-pts {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  min-width: 36px;
+  text-align: right;
+}
+
+.score-threshold {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.threshold { display: flex; align-items: center; gap: 6px; }
+.threshold-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+/* Context DB additions */
+.ctx-addition {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.ctx-add-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface2);
+}
+
+.ctx-add-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 18px;
+  font-style: italic;
+  color: var(--text);
+}
+
+.ctx-add-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid var(--border2);
+  color: var(--muted);
+}
+
+.ctx-add-owner {
+  margin-left: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.ctx-add-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+@media (max-width: 640px) { .ctx-add-body { grid-template-columns: 1fr; } }
+
+.ctx-add-col {
+  padding: 18px 22px;
+  border-right: 1px solid var(--border);
+}
+
+.ctx-add-col:last-child { border-right: none; }
+
+.ctx-col-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.ctx-field {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 7px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.ctx-key {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--gap5);
+  min-width: 110px;
+  flex-shrink: 0;
+}
+
+.ctx-val { color: var(--muted); }
+
+/* Hobby / health schedule */
+.time-blocks {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 700px) { .time-blocks { grid-template-columns: repeat(3, 1fr); } }
+
+.day-col { }
+
+.day-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 6px;
+}
+
+.time-block {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 6px;
+  margin-bottom: 4px;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: center;
+  min-height: 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-block.run { border-color: var(--gap4); background: rgba(232,169,75,0.06); }
+.time-block.create { border-color: var(--gap3); background: rgba(125,201,122,0.06); }
+.time-block.games { border-color: var(--gap2); background: rgba(77,184,212,0.06); }
+.time-block.music { border-color: var(--gap6); background: rgba(232,126,176,0.06); }
+.time-block.read { border-color: var(--gap5); background: rgba(155,127,232,0.06); }
+.time-block.free { border-color: var(--border); background: var(--surface2); }
+.time-block.deep { border-color: var(--gap1); background: rgba(232,83,90,0.06); }
+
+.block-emoji { font-size: 14px; margin-bottom: 2px; }
+.block-label { font-family: 'Fira Code', monospace; font-size: 9px; color: var(--muted); letter-spacing: 0.05em; }
+
+/* Legend */
+.legend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* Sequences */
+.seq {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.seq-head {
+  background: var(--surface2);
+  padding: 14px 22px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.seq-id-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.seq-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: 17px;
+  font-style: italic;
+  color: var(--text);
+}
+
+.seq-trigger-tag {
+  margin-left: auto;
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gap5);
+  background: rgba(155,127,232,0.08);
+  border: 1px solid rgba(155,127,232,0.2);
+  padding: 3px 8px;
+}
+
+.seq-body { padding: 18px 22px; }
+
+.seq-step {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+
+.seq-step:last-child { margin-bottom: 0; }
+
+.ss-num {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  color: var(--faint);
+  min-width: 20px;
+  padding-top: 2px;
+}
+
+.ss-agent {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  min-width: 80px;
+  padding-top: 2px;
+  flex-shrink: 0;
+}
+
+.ss-agent.filter { color: var(--agent-filter); }
+.ss-agent.mirror { color: var(--agent-mirror); }
+.ss-agent.ledger { color: var(--gap4); }
+.ss-agent.dispatch { color: var(--text); }
+.ss-agent.you { color: var(--gap5); font-style: italic; }
+
+.ss-action {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+}
+
+.ss-action em { color: var(--gap3); font-style: normal; font-family: 'Fira Code', monospace; font-size: 11px; }
+
+/* Career compass */
+.compass-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-bottom: 32px;
+}
+
+@media (max-width: 640px) { .compass-grid { grid-template-columns: 1fr; } }
+
+.compass-cell {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 24px;
+}
+
+.compass-label {
+  font-family: 'Fira Code', monospace;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+
+.compass-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.compass-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.compass-item .ci-bullet {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gap5);
+  flex-shrink: 0;
+  margin-top: 7px;
+}
+
+.compass-item .ci-text { color: var(--text); }
+.compass-item .ci-note { color: var(--muted); font-size: 11px; margin-top: 2px; font-style: italic; }
+
+.fill-prompt {
+  background: var(--faint);
+  border: 1px dashed var(--border2);
+  padding: 12px 16px;
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 8px;
+  font-style: italic;
+}
+
+code {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+  color: var(--gap5);
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-pre">PatternOS — Expansion Module</div>
+  <h1>Closing<br>the <span class="h1-em">Gaps</span></h1>
+  <p class="header-sub">Six identified gaps. Two new agents. Expanded context DB. Decision engine for saying no. A career compass. Protected time for everything that matters beyond work.</p>
+  <div class="gap-count">6 gaps identified — all addressed in this document</div>
+</header>
+
+<nav class="tab-nav">
+  <button class="active" onclick="showTab('audit')">Gap Audit</button>
+  <button onclick="showTab('agents')">New Agents</button>
+  <button onclick="showTab('career')">Career Engine</button>
+  <button onclick="showTab('crm')">Personal CRM</button>
+  <button onclick="showTab('hobbies')">Hobbies + Health</button>
+  <button onclick="showTab('sequences')">New Sequences</button>
+  <button onclick="showTab('context')">Context Additions</button>
+</nav>
+
+<!-- ===== GAP AUDIT ===== -->
+<div id="audit" class="tab-content active">
+
+  <div class="section-label">What the current system misses</div>
+
+  <div class="callout">
+    The first PatternOS doc built excellent infrastructure for <strong>work output</strong>. What it didn't build was infrastructure for <strong>who you are, how you decide, and what you protect.</strong> These gaps mean the system would make you more productive at the wrong things.
+  </div>
+
+  <div class="gap-list">
+
+    <div class="gap-item" data-gap="1">
+      <div class="gap-stripe"></div>
+      <div class="gap-body">
+        <div class="gap-header">
+          <div class="gap-id">GAP-01</div>
+          <div class="gap-name">No "No" Engine</div>
+          <div class="gap-severity sev-critical">Critical</div>
+        </div>
+        <div class="gap-desc">You said you say yes to too many things. The current system has no filter between "opportunity arrives" and "it enters the queue." In fact, the system as designed makes this worse — more capture, more processing, more execution means more surface area for yes. Without a decision filter agent, PatternOS becomes a high-efficiency machine for overcommitment.</div>
+        <div class="gap-fix">New agent FILTER + decision scoring framework inserted before anything enters Projects DB</div>
+      </div>
+    </div>
+
+    <div class="gap-item" data-gap="2">
+      <div class="gap-stripe"></div>
+      <div class="gap-body">
+        <div class="gap-header">
+          <div class="gap-id">GAP-02</div>
+          <div class="gap-name">Relationships Are Stakeholders Only</div>
+          <div class="gap-severity sev-high">High</div>
+        </div>
+        <div class="gap-desc">The People DB exists for clients, hiring managers, and professional contacts. Friends, family, mentors, and meaningful personal connections are nowhere. No cadence. No context. No reminder that you haven't talked to someone in 6 months. A personal CRM that only tracks professional utility is a shallow one.</div>
+        <div class="gap-fix">New agent MIRROR + expanded People DB with relationship tiers, cadence, and reflection fields</div>
+      </div>
+    </div>
+
+    <div class="gap-item" data-gap="3">
+      <div class="gap-stripe"></div>
+      <div class="gap-body">
+        <div class="gap-header">
+          <div class="gap-id">GAP-03</div>
+          <div class="gap-name">Hobbies Have No Infrastructure</div>
+          <div class="gap-severity sev-high">High</div>
+        </div>
+        <div class="gap-desc">Music, reading, gaming, drawing — these appear nowhere in the agent roster, context DB, or weekly review. "No guilt" means they need to be first-class citizens with protected calendar blocks, not things you do when work is done. Work is never done. The only way hobbies survive is if the system treats them with the same seriousness as a client deliverable.</div>
+        <div class="gap-fix">Hobby DB + protected calendar architecture + LEDGER integration to track and protect them</div>
+      </div>
+    </div>
+
+    <div class="gap-item" data-gap="4">
+      <div class="gap-stripe"></div>
+      <div class="gap-body">
+        <div class="gap-header">
+          <div class="gap-id">GAP-04</div>
+          <div class="gap-name">Health Is Passive, Not Goal-Directed</div>
+          <div class="gap-severity sev-high">High</div>
+        </div>
+        <div class="gap-desc">Strava and Chronometer feed Ledger but there's no goal architecture — no running plan, no strength progression tracking, no agent that notices you've missed your weekly mileage three weeks in a row and asks what's blocking it. Tracking without goals is just logging.</div>
+        <div class="gap-fix">Health goals context + LEDGER gains active health monitoring + training plan awareness</div>
+      </div>
+    </div>
+
+    <div class="gap-item" data-gap="5">
+      <div class="gap-stripe"></div>
+      <div class="gap-body">
+        <div class="gap-header">
+          <div class="gap-id">GAP-05</div>
+          <div class="gap-name">Career Identity Is Implicit</div>
+          <div class="gap-severity sev-critical">Critical</div>
+        </div>
+        <div class="gap-desc">Andy Profile has career history. It doesn't have a living career compass — stated values, non-negotiables, 3-year direction, what "good work" feels like vs. what just pays well. Without this, FILTER has nothing to evaluate against when an opportunity arrives. The "yes to everything" problem is a symptom of not having written criteria.</div>
+        <div class="gap-fix">Career Compass context object + FILTER agent uses it for every opportunity evaluation</div>
+      </div>
+    </div>
+
+    <div class="gap-item" data-gap="6">
+      <div class="gap-stripe"></div>
+      <div class="gap-body">
+        <div class="gap-header">
+          <div class="gap-id">GAP-06</div>
+          <div class="gap-name">No Energy Management Layer</div>
+          <div class="gap-severity sev-med">Medium</div>
+        </div>
+        <div class="gap-desc">Tasks are not equal. Writing a strategy doc drains in a way that sim racing restores. An engineering deep dive depletes in a way a reading session doesn't. The current system treats all work as fungible. For someone running Atlassian + Ghostweave + job search + creative projects simultaneously, this leads to burnout that looks like procrastination.</div>
+        <div class="gap-fix">Energy field added to tasks + weekly energy budget concept + LEDGER tracks depletion patterns</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ===== NEW AGENTS ===== -->
+<div id="agents" class="tab-content">
+
+  <div class="section-label">Two new agents joining the roster</div>
+
+  <div class="callout">
+    <strong>FILTER</strong> sits before anything enters the system. <strong>MIRROR</strong> looks inward — relationships, reflection, personal life. Together they cover the human side of the OS that the original six agents ignored entirely.
+  </div>
+
+  <div class="new-agent filter-col">
+    <div class="agent-header">
+      <div>
+        <div class="agent-id-line">AGENT-06 // DECISION FILTER</div>
+        <div class="agent-name">Filter</div>
+        <div class="agent-tagline">The agent that exists to say no on your behalf — using your own stated criteria.</div>
+      </div>
+      <div class="agent-model">
+        Model: Claude Sonnet<br>
+        Context: career_compass<br>
+        current_load<br>
+        projects (active count)<br>
+        weekly_state
+      </div>
+    </div>
+    <div class="agent-body">
+      <div class="agent-col filter-col">
+        <div class="col-label">What it does</div>
+        <div class="col-item">Evaluates every incoming opportunity — job, contract, collab, side project — against your Career Compass before anything else happens</div>
+        <div class="col-item">Scores it across 5 dimensions (see Career Engine tab) and returns a verdict: pursue, defer, or decline — with reasoning</div>
+        <div class="col-item">Checks current load before scoring: if you're already at capacity, the bar automatically raises</div>
+        <div class="col-item">Never adds anything to Projects DB without a FILTER pass first</div>
+      </div>
+      <div class="agent-col filter-col">
+        <div class="col-label">Triggers</div>
+        <div class="col-item">New job posting flagged to Dispatch</div>
+        <div class="col-item">New consulting inquiry received</div>
+        <div class="col-item">"Should I do X?" asked directly</div>
+        <div class="col-item">New project idea from Inbox triage</div>
+        <div class="col-item">Any request to add a new project</div>
+      </div>
+      <div class="agent-col filter-col">
+        <div class="col-label">Output</div>
+        <div class="col-item">Scored evaluation with dimension breakdown</div>
+        <div class="col-item">Explicit recommendation (pursue / defer / decline) with a single sentence of reasoning</div>
+        <div class="col-item">If decline: a suggested alternative response you can send</div>
+        <div class="col-item">Logs decision to <code>decisions_log</code> regardless of outcome</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="new-agent mirror-col">
+    <div class="agent-header">
+      <div>
+        <div class="agent-id-line">AGENT-07 // REFLECTION + RELATIONSHIPS</div>
+        <div class="agent-name">Mirror</div>
+        <div class="agent-tagline">Personal CRM, relationship maintenance, and the agent that asks how you're actually doing.</div>
+      </div>
+      <div class="agent-model">
+        Model: Claude Opus<br>
+        Context: people_personal<br>
+        weekly_state<br>
+        hobby_log<br>
+        health_goals
+      </div>
+    </div>
+    <div class="agent-body">
+      <div class="agent-col mirror-col">
+        <div class="col-label">What it does</div>
+        <div class="col-item">Maintains the personal People DB — friends, family, mentors — with relationship context, last meaningful contact, and cadence targets</div>
+        <div class="col-item">Surfaces who you haven't talked to in too long, with context on what's going on in their lives and a suggested touchpoint</div>
+        <div class="col-item">Runs personal reflection prompts — separate from the operational weekly review — focused on how you're living, not what you shipped</div>
+        <div class="col-item">Tracks hobby engagement and flags when creative/restorative activities have been crowded out for more than 2 weeks</div>
+      </div>
+      <div class="agent-col mirror-col">
+        <div class="col-label">Triggers</div>
+        <div class="col-item">Sunday morning (before the operational review)</div>
+        <div class="col-item">Monthly deeper reflection (first Sunday of month)</div>
+        <div class="col-item">"Who should I reach out to?" queries</div>
+        <div class="col-item">Relationship cadence alerts (person overdue)</div>
+        <div class="col-item">"How am I actually doing?" direct query</div>
+      </div>
+      <div class="agent-col mirror-col">
+        <div class="col-label">Output</div>
+        <div class="col-item">Weekly: 1–3 people to reach out to, with context and suggested message angle</div>
+        <div class="col-item">Monthly: a personal reflection report — energy, relationships, creative health, growth direction</div>
+        <div class="col-item">Hobby alert if any tracked hobby hasn't appeared in the log for 14+ days</div>
+        <div class="col-item">A question. Just one. Something worth sitting with.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== CAREER ENGINE ===== -->
+<div id="career" class="tab-content">
+
+  <div class="section-label">Career Compass + Decision Scoring</div>
+
+  <div class="callout">
+    The Career Compass is a document you write once and maintain quarterly. It's the source FILTER reads before evaluating anything. <strong>Without it, you're evaluating opportunities against vibes. With it, you're evaluating against criteria.</strong> The difference is saying no with confidence instead of guilt.
+  </div>
+
+  <div class="compass-grid">
+
+    <div class="compass-cell">
+      <div class="compass-label">Non-Negotiables (instant filter)</div>
+      <div class="compass-items">
+        <div class="compass-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-text">Remote-first or hybrid with flexibility</div>
+            <div class="ci-note">You've built your life around location independence. Don't trade it.</div>
+          </div>
+        </div>
+        <div class="compass-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-text">No roles that require hiding technical depth</div>
+            <div class="ci-note">You're a builder who leads. Not a pure manager. Never again.</div>
+          </div>
+        </div>
+        <div class="compass-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-text">Ghostweave Labs stays active</div>
+            <div class="ci-note">Any role that requires shutting down the consultancy is a no.</div>
+          </div>
+        </div>
+        <div class="fill-prompt">// Add yours — what would make you quit in 90 days?</div>
+      </div>
+    </div>
+
+    <div class="compass-cell">
+      <div class="compass-label">What "Good Work" Feels Like</div>
+      <div class="compass-items">
+        <div class="compass-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-text">Building things that didn't exist before</div>
+            <div class="ci-note">Systems, frameworks, products. Not maintaining someone else's decisions.</div>
+          </div>
+        </div>
+        <div class="compass-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-text">Working at the intersection of data, AI, and human systems</div>
+            <div class="ci-note">Your edge. Don't work outside it for money.</div>
+          </div>
+        </div>
+        <div class="compass-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-text">Enough autonomy to design the solution, not just execute it</div>
+          </div>
+        </div>
+        <div class="fill-prompt">// When did work last feel genuinely good? What was true then?</div>
+      </div>
+    </div>
+
+    <div class="compass-cell">
+      <div class="compass-label">3-Year Direction (your north)</div>
+      <div class="compass-items">
+        <div class="compass-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-text">Principal/VP-level IC or small-team lead at a company where data is a product, not a cost center</div>
+          </div>
+        </div>
+        <div class="compass-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-text">Ghostweave Labs generating enough to be a real option, not just a fallback</div>
+          </div>
+        </div>
+        <div class="compass-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-text">At least one shipped creative project — game, novel, or significant worldbuilding work — that exists in the world</div>
+          </div>
+        </div>
+        <div class="fill-prompt">// Does this opportunity move any of these needles? If none: decline.</div>
+      </div>
+    </div>
+
+    <div class="compass-cell">
+      <div class="compass-label">Personality + Work Style Facts</div>
+      <div class="compass-items">
+        <div class="compass-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-text">Xennial: you bridge analog depth with digital fluency. Roles that ignore either half waste you.</div>
+          </div>
+        </div>
+        <div class="compass-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-text">You do your best thinking in long uninterrupted blocks. Roles with constant context switching cost you disproportionately.</div>
+          </div>
+        </div>
+        <div class="compass-item">
+          <div class="ci-bullet"></div>
+          <div>
+            <div class="ci-text">Creative work isn't a hobby. It's a core function. Roles that treat it as a liability will burn you out.</div>
+          </div>
+        </div>
+        <div class="fill-prompt">// What trait do you keep trying to suppress at work? Stop working for people who need you to.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="section-label">The Opportunity Scoring Framework</div>
+
+  <div class="decision-tree">
+    <div class="dt-question">Before scoring: Does it violate a non-negotiable? If yes → immediate decline. Don't score it.</div>
+
+    <div class="dt-row">
+      <div class="dt-num">01</div>
+      <div class="dt-criterion">
+        <div>Aligns with 3-year direction</div>
+        <div class="dt-sub">Does pursuing this make the 3-year target more or less likely?</div>
+      </div>
+      <div class="dt-verdict verdict-pass">0–3 pts</div>
+    </div>
+    <div class="dt-row">
+      <div class="dt-num">02</div>
+      <div class="dt-criterion">
+        <div>Plays to your actual edge</div>
+        <div class="dt-sub">Data + AI + human systems + building. Or is it adjacent but not quite?</div>
+      </div>
+      <div class="dt-verdict verdict-pass">0–3 pts</div>
+    </div>
+    <div class="dt-row">
+      <div class="dt-num">03</div>
+      <div class="dt-criterion">
+        <div>Sustainable load given current commitments</div>
+        <div class="dt-sub">Atlassian + Ghostweave + job search is already a full hand. What does this displace?</div>
+      </div>
+      <div class="dt-verdict verdict-flag">0–2 pts</div>
+    </div>
+    <div class="dt-row">
+      <div class="dt-num">04</div>
+      <div class="dt-criterion">
+        <div>Financial upside or strategic leverage</div>
+        <div class="dt-sub">Does it pay well, open a door, or build something that compounds?</div>
+      </div>
+      <div class="dt-verdict verdict-flag">0–2 pts</div>
+    </div>
+    <div class="dt-row">
+      <div class="dt-num">05</div>
+      <div class="dt-criterion">
+        <div>Gut signal (honest)</div>
+        <div class="dt-sub">If you imagine saying yes and it feels heavy — that counts. Score it low.</div>
+      </div>
+      <div class="dt-verdict verdict-flag">0–2 pts</div>
+    </div>
+  </div>
+
+  <div class="scoring-bar">
+    <div class="score-label">Score thresholds — what FILTER recommends</div>
+    <div class="score-row">
+      <div class="score-name">10–12: Pursue actively</div>
+      <div class="score-bar-wrap"><div class="score-bar-fill" style="width:100%; background: var(--gap3);"></div></div>
+      <div class="score-pts">10–12</div>
+    </div>
+    <div class="score-row">
+      <div class="score-name">7–9: Pursue with conditions</div>
+      <div class="score-bar-wrap"><div class="score-bar-fill" style="width:75%; background: var(--gap4);"></div></div>
+      <div class="score-pts">7–9</div>
+    </div>
+    <div class="score-row">
+      <div class="score-name">5–6: Defer or watch</div>
+      <div class="score-bar-wrap"><div class="score-bar-fill" style="width:50%; background: var(--muted);"></div></div>
+      <div class="score-pts">5–6</div>
+    </div>
+    <div class="score-row">
+      <div class="score-name">0–4: Decline</div>
+      <div class="score-bar-wrap"><div class="score-bar-fill" style="width:33%; background: var(--gap1);"></div></div>
+      <div class="score-pts">0–4</div>
+    </div>
+    <div class="score-threshold">
+      <div class="threshold"><div class="threshold-dot" style="background:var(--gap3)"></div>Pursue</div>
+      <div class="threshold"><div class="threshold-dot" style="background:var(--gap4)"></div>Conditional</div>
+      <div class="threshold"><div class="threshold-dot" style="background:var(--muted)"></div>Defer</div>
+      <div class="threshold"><div class="threshold-dot" style="background:var(--gap1)"></div>Decline</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== PERSONAL CRM ===== -->
+<div id="crm" class="tab-content">
+
+  <div class="section-label">Personal CRM — MIRROR's domain</div>
+
+  <div class="callout">
+    The original People DB is a professional contact ledger. This is different. <strong>Personal CRM is about the humans you actually care about</strong> — not what they can do for you. It has cadence, context, and reflection. MIRROR reads it, surfaces who needs attention, and helps you show up without having to remember everything yourself.
+  </div>
+
+  <div class="ctx-addition">
+    <div class="ctx-add-header">
+      <div class="ctx-add-name">People — Personal</div>
+      <div class="ctx-add-tag">New DB</div>
+      <div class="ctx-add-owner">Agent: MIRROR</div>
+    </div>
+    <div class="ctx-add-body">
+      <div class="ctx-add-col">
+        <div class="ctx-col-label">Identity + Relationship</div>
+        <div class="ctx-field"><span class="ctx-key">name</span><span class="ctx-val">full name</span></div>
+        <div class="ctx-field"><span class="ctx-key">tier</span><span class="ctx-val">inner circle / close / maintain / peripheral</span></div>
+        <div class="ctx-field"><span class="ctx-key">relationship</span><span class="ctx-val">friend / family / mentor / former colleague / other</span></div>
+        <div class="ctx-field"><span class="ctx-key">location</span><span class="ctx-val">where they are now</span></div>
+        <div class="ctx-field"><span class="ctx-key">shared_history</span><span class="ctx-val">how you know them, key shared moments</span></div>
+        <div class="ctx-field"><span class="ctx-key">what_matters_to_them</span><span class="ctx-val">their kids, projects, struggles, obsessions</span></div>
+        <div class="ctx-field"><span class="ctx-key">preferred_contact</span><span class="ctx-val">text / call / in-person / email</span></div>
+      </div>
+      <div class="ctx-add-col">
+        <div class="ctx-col-label">Cadence + Health</div>
+        <div class="ctx-field"><span class="ctx-key">target_cadence</span><span class="ctx-val">weekly / monthly / quarterly / annual</span></div>
+        <div class="ctx-field"><span class="ctx-key">last_contact</span><span class="ctx-val">date + medium + what you talked about</span></div>
+        <div class="ctx-field"><span class="ctx-key">last_meaningful</span><span class="ctx-val">date of last real conversation (vs logistics)</span></div>
+        <div class="ctx-field"><span class="ctx-key">open_threads</span><span class="ctx-val">things they mentioned you should follow up on</span></div>
+        <div class="ctx-field"><span class="ctx-key">upcoming</span><span class="ctx-val">birthdays, big moments, things you know are coming</span></div>
+        <div class="ctx-field"><span class="ctx-key">relationship_health</span><span class="ctx-val">1–5, your honest read, updated quarterly</span></div>
+        <div class="ctx-field"><span class="ctx-key">notes</span><span class="ctx-val">anything MIRROR should know before prompting outreach</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Relationship Tiers — how MIRROR prioritizes</div>
+
+  <div class="callout">
+    <strong>Inner circle</strong> (5–8 people max): weekly cadence. MIRROR notices if 2+ weeks pass. These are the people whose absence you'd feel immediately.<br><br>
+    <strong>Close</strong> (10–20): monthly. MIRROR surfaces them when they've gone 6+ weeks without contact. These are the friendships worth tending.<br><br>
+    <strong>Maintain</strong> (20–50): quarterly check-in. Birthdays, big moments, occasional drops. MIRROR handles the reminders.<br><br>
+    <strong>Peripheral</strong>: no cadence. MIRROR doesn't track — just stores context for when you reconnect organically.
+  </div>
+
+  <div class="section-label">What MIRROR produces — weekly</div>
+
+  <div class="callout">
+    Every Sunday morning before your operational review, MIRROR delivers a short personal brief:
+    <br><br>
+    <strong>→ 1–2 people to reach out to</strong> this week, with context on why now and a suggested angle (not a script — an angle).<br>
+    <strong>→ One open thread to close</strong> — something someone mentioned you said you'd follow up on.<br>
+    <strong>→ One upcoming moment</strong> to prepare for — a birthday, a transition, something you knew was coming.<br>
+    <strong>→ One reflection question</strong> about your relationships generally. Not answered by the system — answered by you.
+  </div>
+
+</div>
+
+<!-- ===== HOBBIES + HEALTH ===== -->
+<div id="hobbies" class="tab-content">
+
+  <div class="section-label">Protected time architecture</div>
+
+  <div class="callout">
+    <strong>"No guilt" means the system enforces the time, not your willpower.</strong> These blocks are in the calendar before anything else. They are not aspirational. They are not negotiable with work. They are the reason you're building a more efficient work system — so this time actually exists.
+  </div>
+
+  <div class="section-label">Weekly protected block template</div>
+
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(232,169,75,0.4);border:1px solid var(--gap4)"></div>Running / workout</div>
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(125,201,122,0.4);border:1px solid var(--gap3)"></div>Drawing / Procreate</div>
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(77,184,212,0.4);border:1px solid var(--gap2)"></div>Gaming</div>
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(232,126,176,0.4);border:1px solid var(--gap6)"></div>Music / Suno / DAW</div>
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(155,127,232,0.4);border:1px solid var(--gap5)"></div>Reading</div>
+    <div class="legend-item"><div class="legend-dot" style="background:rgba(232,83,90,0.4);border:1px solid var(--gap1)"></div>Deep work (protected)</div>
+  </div>
+
+  <div class="time-blocks">
+    <div class="day-col">
+      <div class="day-label">Mon</div>
+      <div class="time-block run"><div class="block-emoji">🏃</div><div class="block-label">AM run</div></div>
+      <div class="time-block deep"><div class="block-emoji">🧠</div><div class="block-label">deep work</div></div>
+      <div class="time-block read"><div class="block-emoji">📖</div><div class="block-label">reading 30m</div></div>
+    </div>
+    <div class="day-col">
+      <div class="day-label">Tue</div>
+      <div class="time-block deep"><div class="block-emoji">🧠</div><div class="block-label">deep work</div></div>
+      <div class="time-block music"><div class="block-emoji">🎵</div><div class="block-label">music eve</div></div>
+    </div>
+    <div class="day-col">
+      <div class="day-label">Wed</div>
+      <div class="time-block run"><div class="block-emoji">🏃</div><div class="block-label">AM run</div></div>
+      <div class="time-block deep"><div class="block-emoji">🧠</div><div class="block-label">deep work</div></div>
+      <div class="time-block create"><div class="block-emoji">✏️</div><div class="block-label">draw/create</div></div>
+    </div>
+    <div class="day-col">
+      <div class="day-label">Thu</div>
+      <div class="time-block deep"><div class="block-emoji">🧠</div><div class="block-label">deep work</div></div>
+      <div class="time-block read"><div class="block-emoji">📖</div><div class="block-label">reading 30m</div></div>
+      <div class="time-block games"><div class="block-emoji">🎮</div><div class="block-label">gaming eve</div></div>
+    </div>
+    <div class="day-col">
+      <div class="day-label">Fri</div>
+      <div class="time-block run"><div class="block-emoji">🏃</div><div class="block-label">AM run</div></div>
+      <div class="time-block free"><div class="block-emoji">🌊</div><div class="block-label">flex / light</div></div>
+      <div class="time-block music"><div class="block-emoji">🎵</div><div class="block-label">music / Suno</div></div>
+    </div>
+    <div class="day-col">
+      <div class="day-label">Sat</div>
+      <div class="time-block run"><div class="block-emoji">🏃</div><div class="block-label">long run</div></div>
+      <div class="time-block games"><div class="block-emoji">🎮</div><div class="block-label">gaming</div></div>
+      <div class="time-block create"><div class="block-emoji">✏️</div><div class="block-label">creative</div></div>
+    </div>
+    <div class="day-col">
+      <div class="day-label">Sun</div>
+      <div class="time-block read"><div class="block-emoji">📖</div><div class="block-label">reading</div></div>
+      <div class="time-block free"><div class="block-emoji">🌿</div><div class="block-label">family / rest</div></div>
+      <div class="time-block free"><div class="block-emoji">📓</div><div class="block-label">review</div></div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>The rule:</strong> Work meetings can only book into unblocked white space. Hobby and health blocks are not "available." This requires one setup — blocking these in Google Calendar as "busy" with a title that makes the purpose visible to you. Tune the schedule to fit your actual life; the structure matters more than the exact days.
+  </div>
+
+  <div class="section-label">Hobby + Health Context DB</div>
+
+  <div class="ctx-addition">
+    <div class="ctx-add-header">
+      <div class="ctx-add-name">Hobby Log</div>
+      <div class="ctx-add-tag">New — weekly</div>
+      <div class="ctx-add-owner">Agent: MIRROR + LEDGER</div>
+    </div>
+    <div class="ctx-add-body">
+      <div class="ctx-add-col">
+        <div class="ctx-col-label">Per hobby tracking</div>
+        <div class="ctx-field"><span class="ctx-key">hobby</span><span class="ctx-val">music / reading / gaming / drawing / writing</span></div>
+        <div class="ctx-field"><span class="ctx-key">week_of</span><span class="ctx-val">ISO date</span></div>
+        <div class="ctx-field"><span class="ctx-key">sessions</span><span class="ctx-val">count of sessions this week</span></div>
+        <div class="ctx-field"><span class="ctx-key">minutes</span><span class="ctx-val">rough total time</span></div>
+        <div class="ctx-field"><span class="ctx-key">what</span><span class="ctx-val">what you played, read, made, drew</span></div>
+        <div class="ctx-field"><span class="ctx-key">energy_after</span><span class="ctx-val">restored / neutral / drained (1–5)</span></div>
+      </div>
+      <div class="ctx-add-col">
+        <div class="ctx-col-label">Health Goals</div>
+        <div class="ctx-field"><span class="ctx-key">run_weekly_target</span><span class="ctx-val">miles / week</span></div>
+        <div class="ctx-field"><span class="ctx-key">run_current_plan</span><span class="ctx-val">e.g. base building, race training</span></div>
+        <div class="ctx-field"><span class="ctx-key">strength_days</span><span class="ctx-val">target per week</span></div>
+        <div class="ctx-field"><span class="ctx-key">sleep_target</span><span class="ctx-val">hours</span></div>
+        <div class="ctx-field"><span class="ctx-key">nutrition_focus</span><span class="ctx-val">current Chronometer target / goal</span></div>
+        <div class="ctx-field"><span class="ctx-key">next_race_or_goal</span><span class="ctx-val">date + what</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== NEW SEQUENCES ===== -->
+<div id="sequences" class="tab-content">
+
+  <div class="section-label">New agentic sequences</div>
+
+  <div class="seq">
+    <div class="seq-head">
+      <span class="seq-id-tag">SEQ-07</span>
+      <span class="seq-name">Opportunity Evaluation</span>
+      <span class="seq-trigger-tag">TRIGGER: any new opportunity arrives</span>
+    </div>
+    <div class="seq-body">
+      <div class="seq-step">
+        <div class="ss-num">01</div>
+        <div class="ss-agent dispatch">DISPATCH</div>
+        <div class="ss-action">Receives opportunity (job, contract, collab, project idea). Before anything else, routes to FILTER. Does not add to Inbox until FILTER returns verdict.</div>
+      </div>
+      <div class="seq-step">
+        <div class="ss-num">02</div>
+        <div class="ss-agent filter">FILTER</div>
+        <div class="ss-action">Reads <em>career_compass</em>, <em>current_load</em>, <em>projects (active count)</em>. Checks non-negotiables first. If violated → immediate decline with suggested response, sequence ends.</div>
+      </div>
+      <div class="seq-step">
+        <div class="ss-num">03</div>
+        <div class="ss-agent filter">FILTER</div>
+        <div class="ss-action">Scores across 5 dimensions. Returns: score breakdown, verdict (pursue / defer / decline), one-sentence reasoning, and — if decline — a draft response you can send.</div>
+      </div>
+      <div class="seq-step">
+        <div class="ss-num">04</div>
+        <div class="ss-agent you">YOU</div>
+        <div class="ss-action">Review FILTER's output. Override if you disagree — but you have to consciously override. Logs to <em>decisions_log</em> with your final call and reason.</div>
+      </div>
+      <div class="seq-step">
+        <div class="ss-num">05</div>
+        <div class="ss-agent dispatch">DISPATCH</div>
+        <div class="ss-action">If pursue: adds to appropriate DB and fires relevant intake sequence (e.g. SEQ-01 for job roles). If decline: sends your response. Either way, decision is logged.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="seq">
+    <div class="seq-head">
+      <span class="seq-id-tag">SEQ-08</span>
+      <span class="seq-name">Sunday Personal Brief</span>
+      <span class="seq-trigger-tag">TRIGGER: Sunday 8am automatic</span>
+    </div>
+    <div class="seq-body">
+      <div class="seq-step">
+        <div class="ss-num">01</div>
+        <div class="ss-agent mirror">MIRROR</div>
+        <div class="ss-action">Reads <em>people_personal</em>. Identifies: who is overdue for their cadence tier, any open threads to close, any upcoming moments this week or next.</div>
+      </div>
+      <div class="seq-step">
+        <div class="ss-num">02</div>
+        <div class="ss-agent mirror">MIRROR</div>
+        <div class="ss-action">Reads <em>hobby_log</em> (last 2 weeks). Flags any hobby with zero sessions in 14 days. Reads <em>health_goals</em> vs Strava actuals — flags any missed week targets.</div>
+      </div>
+      <div class="seq-step">
+        <div class="ss-num">03</div>
+        <div class="ss-agent mirror">MIRROR</div>
+        <div class="ss-action">Generates personal brief: 2 people to reach out to (with context + angle), 1 open thread, 1 upcoming moment, 1 hobby flag if any, 1 reflection question.</div>
+      </div>
+      <div class="seq-step">
+        <div class="ss-num">04</div>
+        <div class="ss-agent you">YOU</div>
+        <div class="ss-action">Read personal brief (5 min, before the operational review). Act on 1–2 items. The question doesn't need an answer today — just let it sit.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="seq">
+    <div class="seq-head">
+      <span class="seq-id-tag">SEQ-09</span>
+      <span class="seq-name">Monthly Personal Reflection</span>
+      <span class="seq-trigger-tag">TRIGGER: First Sunday of month, 9am</span>
+    </div>
+    <div class="seq-body">
+      <div class="seq-step">
+        <div class="ss-num">01</div>
+        <div class="ss-agent mirror">MIRROR</div>
+        <div class="ss-action">Reads last 4 weekly states, hobby_log (full month), health actuals vs goals, decisions_log (month's decisions), relationship contacts made this month.</div>
+      </div>
+      <div class="seq-step">
+        <div class="ss-num">02</div>
+        <div class="ss-agent mirror">MIRROR</div>
+        <div class="ss-action">Generates personal month-in-review: energy pattern (what drained, what restored), creative health score (hobby engagement), relationship depth (meaningful vs transactional contacts), one pattern to investigate, one pattern to protect.</div>
+      </div>
+      <div class="seq-step">
+        <div class="ss-num">03</div>
+        <div class="ss-agent mirror">MIRROR</div>
+        <div class="ss-action">Asks 3 open questions — not rhetorical, not answerable by data. Things like: "What did you avoid this month that might be worth paying attention to?"</div>
+      </div>
+      <div class="seq-step">
+        <div class="ss-num">04</div>
+        <div class="ss-agent you">YOU</div>
+        <div class="ss-action">Write 200–400 words in response. This is your monthly journal entry. MIRROR stores it to <em>reflection_log</em>. Ledger can reference it in quarterly career compass reviews.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="seq">
+    <div class="seq-head">
+      <span class="seq-id-tag">SEQ-10</span>
+      <span class="seq-name">Quarterly Career Compass Review</span>
+      <span class="seq-trigger-tag">TRIGGER: First Monday of each quarter</span>
+    </div>
+    <div class="seq-body">
+      <div class="seq-step">
+        <div class="ss-num">01</div>
+        <div class="ss-agent ledger">LEDGER</div>
+        <div class="ss-action">Reads <em>career_compass</em>, last 12 weekly states, decisions_log (quarter), job search pipeline status, reflection_log (3 monthly entries). Synthesizes quarter in context of stated direction.</div>
+      </div>
+      <div class="seq-step">
+        <div class="ss-num">02</div>
+        <div class="ss-agent ledger">LEDGER</div>
+        <div class="ss-action">Generates: Are you moving toward your 3-year direction or away from it? Which decisions from this quarter conflict with your stated compass? What would you tell yourself from 3 months ago?</div>
+      </div>
+      <div class="seq-step">
+        <div class="ss-num">03</div>
+        <div class="ss-agent you">YOU</div>
+        <div class="ss-action">Update the Career Compass. Change what's changed. Sharpen what's gotten clearer. Delete what's no longer true. This is the highest-leverage 30 minutes in the whole system.</div>
+      </div>
+      <div class="seq-step">
+        <div class="ss-num">04</div>
+        <div class="ss-agent dispatch">DISPATCH</div>
+        <div class="ss-action">Saves updated compass to <em>career_compass.json</em> in git. FILTER reads the new version from this point forward. The decision engine just got recalibrated.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ===== CONTEXT ADDITIONS ===== -->
+<div id="context" class="tab-content">
+
+  <div class="section-label">New context DB entries</div>
+
+  <div class="callout">
+    These are the new files added to <code>/patternos/context/</code>. Each has an agent owner responsible for keeping it current. Together they give the system the human layer it was missing.
+  </div>
+
+  <div class="ctx-addition">
+    <div class="ctx-add-header">
+      <div class="ctx-add-name">career_compass.json</div>
+      <div class="ctx-add-tag">Core — quarterly update</div>
+      <div class="ctx-add-owner">Owner: YOU + LEDGER review</div>
+    </div>
+    <div class="ctx-add-body">
+      <div class="ctx-add-col">
+        <div class="ctx-col-label">Structure</div>
+        <div class="ctx-field"><span class="ctx-key">non_negotiables</span><span class="ctx-val">array of hard stops — violating any = instant no</span></div>
+        <div class="ctx-field"><span class="ctx-key">direction_3yr</span><span class="ctx-val">narrative + 3 concrete markers of success</span></div>
+        <div class="ctx-field"><span class="ctx-key">good_work_feels</span><span class="ctx-val">what you're optimizing for in the work itself</span></div>
+        <div class="ctx-field"><span class="ctx-key">edge</span><span class="ctx-val">your specific intersection — where you're hardest to replace</span></div>
+        <div class="ctx-field"><span class="ctx-key">personality_facts</span><span class="ctx-val">truths about how you work that aren't negotiable</span></div>
+        <div class="ctx-field"><span class="ctx-key">last_updated</span><span class="ctx-val">ISO date</span></div>
+        <div class="ctx-field"><span class="ctx-key">version</span><span class="ctx-val">integer — git tracks the diff</span></div>
+      </div>
+      <div class="ctx-add-col">
+        <div class="ctx-col-label">FILTER uses it like this</div>
+        <div class="ctx-field"><span class="ctx-key">step 1</span><span class="ctx-val">check non_negotiables — any match = immediate decline</span></div>
+        <div class="ctx-field"><span class="ctx-key">step 2</span><span class="ctx-val">score against direction_3yr (0–3)</span></div>
+        <div class="ctx-field"><span class="ctx-key">step 3</span><span class="ctx-val">score against edge alignment (0–3)</span></div>
+        <div class="ctx-field"><span class="ctx-key">step 4</span><span class="ctx-val">apply load multiplier from current_load.json</span></div>
+        <div class="ctx-field"><span class="ctx-key">step 5</span><span class="ctx-val">return verdict + reasoning + suggested response if decline</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ctx-addition">
+    <div class="ctx-add-header">
+      <div class="ctx-add-name">current_load.json</div>
+      <div class="ctx-add-tag">Live — weekly update</div>
+      <div class="ctx-add-owner">Owner: LEDGER (auto) + you (verify)</div>
+    </div>
+    <div class="ctx-add-body">
+      <div class="ctx-add-col">
+        <div class="ctx-col-label">Fields</div>
+        <div class="ctx-field"><span class="ctx-key">active_projects</span><span class="ctx-val">count of projects in active status</span></div>
+        <div class="ctx-field"><span class="ctx-key">capacity_used</span><span class="ctx-val">0–100% (your subjective read, weekly)</span></div>
+        <div class="ctx-field"><span class="ctx-key">energy_level</span><span class="ctx-val">current week: high / medium / low / depleted</span></div>
+        <div class="ctx-field"><span class="ctx-key">open_decisions</span><span class="ctx-val">count of unresolved decisions &gt;7 days old</span></div>
+      </div>
+      <div class="ctx-add-col">
+        <div class="ctx-col-label">Why FILTER needs this</div>
+        <div class="ctx-field"><span class="ctx-key">capacity ≥ 85%</span><span class="ctx-val">FILTER raises score threshold by 2 pts. Harder to get a "pursue"</span></div>
+        <div class="ctx-field"><span class="ctx-key">energy = depleted</span><span class="ctx-val">FILTER adds explicit note: "flag — evaluate when energy recovers"</span></div>
+        <div class="ctx-field"><span class="ctx-key">open decisions &gt; 3</span><span class="ctx-val">FILTER flags: resolve open decisions before adding new commitments</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ctx-addition">
+    <div class="ctx-add-header">
+      <div class="ctx-add-name">reflection_log.md</div>
+      <div class="ctx-add-tag">Append-only — monthly</div>
+      <div class="ctx-add-owner">Owner: YOU (write) + LEDGER (reads)</div>
+    </div>
+    <div class="ctx-add-body">
+      <div class="ctx-add-col">
+        <div class="ctx-col-label">Format (per entry)</div>
+        <div class="ctx-field"><span class="ctx-key">date</span><span class="ctx-val">ISO month</span></div>
+        <div class="ctx-field"><span class="ctx-key">energy_theme</span><span class="ctx-val">one sentence on what the month felt like</span></div>
+        <div class="ctx-field"><span class="ctx-key">what_worked</span><span class="ctx-val">2–3 sentences</span></div>
+        <div class="ctx-field"><span class="ctx-key">what_didn't</span><span class="ctx-val">honest, 2–3 sentences</span></div>
+        <div class="ctx-field"><span class="ctx-key">mirror_response</span><span class="ctx-val">your answers to MIRROR's 3 questions</span></div>
+      </div>
+      <div class="ctx-add-col">
+        <div class="ctx-col-label">Why this exists</div>
+        <div class="ctx-field"><span class="ctx-key">longitudinal</span><span class="ctx-val">LEDGER can reference 6 months of entries in quarterly compass review</span></div>
+        <div class="ctx-field"><span class="ctx-key">honesty</span><span class="ctx-val">the system has all your professional output; this gives it your actual inner state</span></div>
+        <div class="ctx-field"><span class="ctx-key">pattern detection</span><span class="ctx-val">LEDGER can say "you've described feeling depleted 3 months in a row" — because it can read this</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Updated agent roster — full picture</div>
+
+  <div class="callout">
+    <strong>DISPATCH</strong> — Orchestrator. Routes all requests. Reads everything, writes nothing except routing logs.<br>
+    <strong>SCOUT</strong> — Research. External intel. NotebookLM queries.<br>
+    <strong>FORGE</strong> — Business ops. Ghostweave clients. Job search materials.<br>
+    <strong>LOOM</strong> — Creative work. Liminal Protocol. Game design. Writing.<br>
+    <strong>WELD</strong> — Engineering. Architecture. ADRs. GitHub.<br>
+    <strong>LEDGER</strong> — Synthesis. Weekly/monthly/quarterly review. Pattern detection.<br>
+    <strong style="color: var(--gap1)">FILTER</strong> — Decision engine. Opportunity evaluation. The no machine.<br>
+    <strong style="color: var(--gap2)">MIRROR</strong> — Relationships. Personal CRM. Reflection. Hobby/health monitoring.
+  </div>
+
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  event.target.classList.add('active');
+  window.scrollTo(0, 0);
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+{
+  "version": 3.1,
+
+  "tracked_hobbies": [
+    "music",
+    "reading",
+    "gaming",
+    "drawing",
+    "writing",
+    "sim_racing",
+    "worldbuilding",
+    "gunpla"
+  ],
+
+  "hobby_context": {
+    "note": "Hobby time is a non-negotiable input to cognitive and emotional stability, not a reward for finishing work. High-load periods cause hobbies to get crowded out entirely — this is a failure mode, not an acceptable trade.",
+    "tools": {
+      "gaming": ["GT7 (PS5)", "PC gaming", "Logitech G920 sim rig", "Unity (game dev)", "Godot (game dev)", "Switch 2"],
+      "music": [
+        "Suno", "Audacity", "general production tools",
+        "Guitars: Mexican Stratocaster, Ibanez Jivajr, Sterling Mariposa, Sterling maj170, Fender Jazzmaster",
+        "Production: OP-1 (primary), Novation Circuit, Liven Lofi-12, Audient iD4, Line 6 Helix, Elektron Digitakt"
+      ],
+      "drawing": ["Procreate", "GIMP"],
+      "writing": ["Claude", "Notion", "raw text"],
+      "sim_racing": ["Logitech G920", "Gran Turismo 7", "Assetto Corsa Competizione (recommended next)"],
+      "reading": ["physical books", "digital"],
+      "gunpla": ["High Grade, Real Grade, Master Grade kits"]
+    },
+    "identity_anchors": {
+      "sim_racing": "F1 and WRC fan. G920 wheel. GT7 is current platform with Assetto Corsa Competizione identified as the next step up for PC sim racing. 2020 Subaru WRX Limited (manual) in real life — real car mechanical knowledge informs sim understanding.",
+      "gaming": "Broad gaming history. Hobbyist game developer in Unity/C#. Exploring Godot. Interest in systems-heavy game mechanics. Key titles: Dark Souls, Destiny.",
+      "worldbuilding": "Liminal Protocol — sci-fi universe in development. Long-term creative project. Low active output but persistent background thread.",
+      "music": "Started at NIU as a music major before switching to English. Music is a long-standing identity component.",
+      "reading": "Current interests: systems design, cognition, speculative fiction. Focus on David Foster Wallace / Infinite Jest.",
+      "motorsport": "F1 and WRC enthusiast. Reads deeply into history, engineering, and human stories (e.g., Go Like Hell / Le Mans era). Racing Line app in use.",
+      "anime_gunpla": "Fan of One Piece, Cowboy Bebop, and Gundam (Wing, Gquuuuux). Note: Not a 'Labubu' person; preference for regular Gundam aesthetics."
+    }
+  },
+
+  "energy_scale": {
+    "5": "Fully restored",
+    "4": "Positive",
+    "3": "Neutral",
+    "2": "Mild drain",
+    "1": "Drained"
+  },
+
+  "log": [
+    {
+      "week_of": "2026-03-31",
+      "hobby": "reading",
+      "sessions": 4,
+      "minutes": 180,
+      "what": "systems design, cognition, speculative fiction",
+      "energy_after": 4
+    },
+    {
+      "week_of": "2026-03-31",
+      "hobby": "writing",
+      "sessions": 2,
+      "minutes": 70,
+      "what": "personal OS articulation and conceptual framing",
+      "energy_after": 5
+    },
+    {
+      "week_of": "2026-03-31",
+      "hobby": "gaming",
+      "sessions": 1,
+      "minutes": 60,
+      "what": "systems-heavy game mechanics exploration",
+      "energy_after": 4
+    }
+  ],
+
+  "protection_rules": {
+    "note": "LEDGER flags if hobbies drop out entirely for 2+ consecutive weeks.",
+    "minimum_weekly_floor": "At least one session of any hobby per week is the non-negotiable floor — not a target, a floor.",
+    "crowding_risk": "Job search + hackathon + race prep window (April) is a high crowding-risk period. Protect gaming and reading especially."
+  }
+}

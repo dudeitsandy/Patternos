@@ -1,0 +1,113 @@
+{
+  "version": 3.1,
+  "last_updated": "2026-04-04",
+  "updated_by": "model_inferred_from_conversations",
+
+  "active_projects": {
+    "count": 11,
+    "note": "Atlassian core + Ghostweave client work + CreatorOS co-founder build + PatternOS personal OS design + job search (2 active threads) + health training rebuild + creative exploration + Atlassian ShipIt hackathon + Liminal Protocol worldbuilding + Talenode Advisory",
+    "detail": [
+      {
+        "name": "Atlassian — People Core Data Model",
+        "domain": "day_job",
+        "description": "Building star schema (worker, position, dim/fact/ref tables) on the People Insights team. Navigating platform team review friction and data mesh architectural misalignment. Foundational work blocked for months; now in test phase.",
+        "status": "active"
+      },
+      {
+        "name": "Atlassian — ShipIt 62 Hackathon",
+        "domain": "day_job",
+        "description": "TeamFlow pitch: maps internal Focus initiatives to human and AI capability requirements, suggests optimal team configurations with traditional vs AI-augmented org design toggle. Hackathon window: April 16-20. Note: High load overlap with Milwaukee Half.",
+        "status": "active_upcoming"
+      },
+      {
+        "name": "Ghostweave Intel (Canopy CRM)",
+        "domain": "ghostweave",
+        "description": "Cannabis sales CRM for BC client Scott Renouf. Single-file HTML/CSS/JS app live at Netlify. Features: visit priority scoring, Sample ROV metric, brand health scorecard, revenue forecasting. Active feature prioritization underway — real BCLDB sales data integration next. Data stored in Canada required (Supabase Canada Central).",
+        "status": "active",
+        "client": "Scott Renouf"
+      },
+      {
+        "name": "CreatorOS",
+        "domain": "ghostweave",
+        "description": "B2B intelligent messaging triage and CRM for adult content creators. Technical co-founder alongside Noelle. Architecture: Python, Telegram webhook, Together.ai API, Playwright for headless browser posting. GitHub scaffold exists. Pilot creator (Thrace) identified. Core positioning: intelligent niche CRM reducing human involvement where not needed, without dishonesty. Platform integration via headless browser (OnlyFans/Fansly).",
+        "status": "active_early",
+        "partner": "Noelle"
+      },
+      {
+        "name": "Talenode Advisory",
+        "domain": "ghostweave",
+        "description": "Serving as an advisor; currently reviewing/executing advisory contract.",
+        "status": "active"
+      },
+      {
+        "name": "PatternOS",
+        "domain": "personal",
+        "description": "Personal operating system design. Four-layer architecture (Capture, Process, Execute, Review) with Notion as connective tissue. Six named agents designed: Dispatch, Scout, Forge, Loom, Weld, Ledger. Claude Desktop + MCP servers for interactive orchestration, Railway for scheduled/webhook flows. JSON context files (career_compass, current_load, etc.) as structured memory layer.",
+        "status": "active_design"
+      },
+      {
+        "name": "Job Search — Expel",
+        "domain": "career",
+        "description": "Analytics Engineering / Platform Lead. Active interview process. Stakeholder conversation with Steven Bowen (FP&A Manager) in preparation. Key platform: dbt, BigQuery, AWS, Domo.",
+        "status": "active"
+      },
+      {
+        "name": "Job Search — Northwestern Mutual",
+        "domain": "career",
+        "description": "Senior Director, Data Workforce Insights & Systems. Recruiter-initiated. Applied. Formal interviews not yet scheduled.",
+        "status": "early"
+      },
+      {
+        "name": "Health Rebuild — Running",
+        "domain": "health",
+        "description": "Injury rebuild protocol. Milwaukee Lakefront Half Marathon on April 18 (imminent). Note: Overlap with ShipIt 62. Chiropractic treatment ongoing for hip/ankle/rib kinetic chain imbalances.",
+        "status": "active"
+      },
+      {
+        "name": "Liminal Protocol",
+        "domain": "creative",
+        "description": "Sci-fi worldbuilding and narrative project. Long-term creative output track. Low active priority but persistent background thread.",
+        "status": "background"
+      },
+      {
+        "name": "Ghostweave Labs — Website / Brand",
+        "domain": "ghostweave",
+        "description": "Ghostweave.com redesigned with dark navy/teal palette. Positioning broadened from people analytics specialist to full-spectrum data professional. Copy voice: human, dry, no AI tells, minimal em dashes.",
+        "status": "maintenance"
+      }
+    ]
+  },
+
+  "capacity_used": {
+    "percent": 88,
+    "note": "At or near overload threshold. Job search active on two threads plus hackathon added since last assessment. New commitments require displacement, not addition.",
+    "breakdown": {
+      "atlassian": "50%",
+      "ghostweave": "20%",
+      "job_search": "10%",
+      "personal_projects": "8%"
+    }
+  },
+
+  "energy_level": "medium",
+
+  "open_decisions": {
+    "count": 5,
+    "items": [
+      "Career direction: Expel vs Northwestern Mutual vs stay at Atlassian — which path to prioritize",
+      "Ghostweave scope boundary: productized tooling vs consulting-only vs hybrid",
+      "CreatorOS partnership structure with Noelle: co-founders, build-for-hire, or advisor",
+      "Ghostweave Intel engagement model with Scott: fixed scope vs retainer vs hybrid",
+      "Creative output channel prioritization: Liminal Protocol vs game dev vs other"
+    ]
+  },
+
+  "filter_modifiers": {
+    "note": "FILTER reads automatically.",
+    "raise_threshold_by_2": "capacity_used >= 85",
+    "add_energy_flag": "energy_level == depleted",
+    "flag_decision_backlog": "open_decisions.count > 3"
+  },
+
+  "weekly_notes": "Operating at or above sustained load ceiling. Two active job search threads plus imminent half marathon plus hackathon prep running simultaneously. ShipIt 62 window (April 16-20) will spike Atlassian load short-term. Milwaukee Half on April 18 is a hard calendar anchor. New commitments require displacement."
+}

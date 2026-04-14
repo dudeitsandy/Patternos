@@ -1,0 +1,100 @@
+{
+  "version": 4.1,
+  "last_updated": "2026-04-04",
+  "note": "Health goals context. Primary objective: restore durable running capacity without reinjury. Running is primary psychological stabilizer and identity anchor.",
+
+  "running": {
+    "weekly_mileage_target": 12,
+    "current_plan": "injury rebuild",
+    "next_race": {
+      "name": "Milwaukee Lakefront Half Marathon",
+      "date": "2026-04-18",
+      "distance": "half marathon",
+      "urgency_note": "15 days out from today (2026-04-04). Hard calendar anchor. Coincides with Atlassian ShipIt hackathon window. Manage load accordingly — do not attempt a heroic training block in the final two weeks."
+    },
+    "secondary_race": {
+      "name": "Arches Half Marathon",
+      "date": "2026-10-10",
+      "distance": "half marathon"
+    },
+    "notes": "Unable to run consistently for several months due to lower calf injury and related compensations. Chiropractic treatment ongoing since Nov 2025 focusing on hip balance, pelvic drift, rib positioning, and ankle mobility. Historical identity: multi-marathon runner with durable aerobic base (see Athlinks profile under Andy/Andrew Styx). Current objective is pain-free consistency, not pace recovery. Zone 2 effort acceptable regardless of pace regression.",
+    "psychological_note": "Running is the primary emotional regulation mechanism and forward-motion signal. Missed runs accumulate as psychological debt faster than physical detraining. Minimum viable movement during high-load work periods matters more than optimal training."
+  },
+
+  "cardio_cross_training": {
+    "primary_tools": [
+      "Peloton bike",
+      "outdoor walking",
+      "light boxing on wavemaster"
+    ],
+    "weekly_sessions_target": 2,
+    "notes": "Peloton used to maintain aerobic continuity during running limitations. Substitute for missed runs without decision friction."
+  },
+
+  "strength": {
+    "sessions_per_week_target": 2,
+    "current_focus": "injury resilience",
+    "available_equipment": [
+      "garage rack",
+      "barbell set",
+      "adjustable dumbbells",
+      "adjustable kettlebell",
+      "pullup bar",
+      "bench",
+      "resistance bands",
+      "wavemaster",
+      "Libertyville Center Club access"
+    ],
+    "notes": "Prior 6 years CrossFit experience. Preference for compound lifts and simple repeatable templates. Emphasis on posterior chain, calf capacity, hip stability, core stiffness, shoulder alignment. Avoid high complexity programming overhead."
+  },
+
+  "mobility_rehab": {
+    "frequency_target": 5,
+    "modalities": [
+      "chiropractic protocol exercises",
+      "banded hip work",
+      "ankle mobility",
+      "thoracic rotation",
+      "core stabilization"
+    ],
+    "notes": "Current constraints suggest kinetic chain imbalance rather than isolated muscle weakness. Daily minimum viable mobility maintains continuity."
+  },
+
+  "sleep": {
+    "target_hours": 7,
+    "notes": "Sleep impacted by work cognitive load and stress accumulation. Maintain consistent sleep window rather than optimizing metrics."
+  },
+
+  "nutrition": {
+    "tracking_tool": "Chronometer",
+    "current_goal": "gradual fat loss while maintaining running energy",
+    "constraints": [
+      "family meal compatibility",
+      "work stress eating patterns",
+      "limited prep bandwidth"
+    ],
+    "default_patterns": [
+      "overnight oats breakfast",
+      "high protein lunch bowls",
+      "Mediterranean / Asian leaning dinners",
+      "protein-first ordering heuristic when eating out"
+    ],
+    "notes": "Target weight trend toward 185-195 without aggressive restriction. Avoid extreme diet structure that increases cognitive load."
+  },
+
+  "identity_context": {
+    "primary_driver": "running supports emotional regulation and sense of forward movement",
+    "secondary_driver": "strength training supports injury resilience and posture integrity",
+    "risk_factor": "stress and isolation degrade nutrition discipline and training consistency — high-load work periods are highest risk windows",
+    "anchor": "minimum weekly movement maintains psychological continuity even during high work load periods",
+    "career_overlap": "physical training consistency directly correlates with cognitive output quality — protecting health time is protecting work quality"
+  },
+
+  "ledger_alert_rules": {
+    "note": "LEDGER uses these to flag in weekly review.",
+    "run_missed_weeks_threshold": 2,
+    "strength_missed_weeks_threshold": 2,
+    "sleep_below_threshold_nights": 3,
+    "mobility_missed_days_threshold": 4
+  }
+}

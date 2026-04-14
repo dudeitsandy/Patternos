@@ -1,0 +1,145 @@
+{
+  "version": 3,
+  "note": "Append-only.",
+
+  "entries": [
+    {
+      "id": "DEC-001",
+      "date": "2026-03-15",
+      "opportunity": "Remain in current leadership track vs pivot toward principal IC path",
+      "type": "job",
+      "source": "internal reflection",
+      "filter_score": {
+        "direction_alignment": 2,
+        "edge_alignment": 3,
+        "load_sustainability": 1,
+        "financial_leverage": 2,
+        "gut_signal": 2,
+        "total": 10,
+        "load_modifier_applied": false
+      },
+      "non_negotiable_violated": null,
+      "filter_verdict": "pursue_with_conditions",
+      "filter_reasoning": "Maintain technical depth exposure.",
+      "your_decision": "pursue_with_conditions",
+      "override": false,
+      "override_reason": null,
+      "outcome": "Active evaluation continues."
+    },
+    {
+      "id": "DEC-002",
+      "date": "2026-03-22",
+      "opportunity": "Expand Ghostweave into productized tooling vs remain consulting-only",
+      "type": "side_project",
+      "source": "strategic reflection",
+      "filter_score": {
+        "direction_alignment": 3,
+        "edge_alignment": 3,
+        "load_sustainability": 1,
+        "financial_leverage": 2,
+        "gut_signal": 2,
+        "total": 11,
+        "load_modifier_applied": false
+      },
+      "non_negotiable_violated": null,
+      "filter_verdict": "pursue",
+      "filter_reasoning": "Directly builds independent leverage.",
+      "your_decision": "pursue",
+      "override": false,
+      "override_reason": null,
+      "outcome": "Platform direction emerging. Ghostweave Intel (client CRM) and CreatorOS (co-founder) both active."
+    },
+    {
+      "id": "DEC-003",
+      "date": "2026-03-28",
+      "opportunity": "CreatorOS — build as Ghostweave project vs co-found with Noelle",
+      "type": "side_project",
+      "source": "partner conversation",
+      "filter_score": {
+        "direction_alignment": 3,
+        "edge_alignment": 3,
+        "load_sustainability": 1,
+        "financial_leverage": 2,
+        "gut_signal": 2,
+        "total": 11,
+        "load_modifier_applied": false
+      },
+      "non_negotiable_violated": null,
+      "filter_verdict": "pursue_with_conditions",
+      "filter_reasoning": "Strong technical fit and interesting architecture problem. Load is real concern. Partnership structure (equity, IP, roles) not yet formalized — this is the primary condition.",
+      "your_decision": "pursue_with_conditions",
+      "override": false,
+      "override_reason": null,
+      "outcome": "Active build in progress. Noelle brings industry knowledge, creator network, investor contacts. Core architecture scaffolded on GitHub. Pilot creator (Thrace) identified. Partnership structure still open."
+    },
+    {
+      "id": "DEC-004",
+      "date": "2026-03-30",
+      "opportunity": "Apply for Senior Director, Data Workforce Insights & Systems at Northwestern Mutual",
+      "type": "job",
+      "source": "recruiter outreach",
+      "filter_score": {
+        "direction_alignment": 2,
+        "edge_alignment": 2,
+        "load_sustainability": 2,
+        "financial_leverage": 2,
+        "gut_signal": 2,
+        "total": 10,
+        "load_modifier_applied": false
+      },
+      "non_negotiable_violated": null,
+      "filter_verdict": "pursue_with_conditions",
+      "filter_reasoning": "Strong technical match. Recruiter-initiated is a positive signal. In-office requirement low (1-2x/month). Compensation band wide — must anchor upper half. Primary condition: HR ops gap needs framing mitigation.",
+      "your_decision": "pursue",
+      "override": false,
+      "override_reason": null,
+      "outcome": "Applied. Resume tailored with strengthened people leadership numbers and governance language. Formal interviews not yet scheduled."
+    },
+    {
+      "id": "DEC-005",
+      "date": "2026-04-01",
+      "opportunity": "Expel Analytics Engineering / Platform Lead — continue active pursuit",
+      "type": "job",
+      "source": "active interview process",
+      "filter_score": {
+        "direction_alignment": 3,
+        "edge_alignment": 3,
+        "load_sustainability": 2,
+        "financial_leverage": 2,
+        "gut_signal": 2,
+        "total": 12,
+        "load_modifier_applied": false
+      },
+      "non_negotiable_violated": null,
+      "filter_verdict": "pursue",
+      "filter_reasoning": "Strong stack alignment (dbt, BigQuery). Principal IC + small team lead structure fits direction. Clear operational problems to solve (lineage, metric trust). Stakeholder Steven Bowen identified as key relationship to establish.",
+      "your_decision": "pursue",
+      "override": false,
+      "override_reason": null,
+      "outcome": "Active. Stakeholder interview with Steven Bowen (FP&A Manager) in preparation. 90-day win sequence framed."
+    },
+    {
+      "id": "DEC-006",
+      "date": "2026-04-01",
+      "opportunity": "Participate in Atlassian ShipIt 62 hackathon with TeamFlow pitch",
+      "type": "work_project",
+      "source": "coworker invitation",
+      "filter_score": {
+        "direction_alignment": 3,
+        "edge_alignment": 3,
+        "load_sustainability": 1,
+        "financial_leverage": 1,
+        "gut_signal": 2,
+        "total": 10,
+        "load_modifier_applied": false
+      },
+      "non_negotiable_violated": null,
+      "filter_verdict": "pursue_with_conditions",
+      "filter_reasoning": "Genuine technical fit with people core data model work. Differentiating angle given background. Load is real — hackathon window (April 16-20) coincides with Milwaukee Half (April 18). Condition: scope the build tightly so it's executable in the window.",
+      "your_decision": "pursue_with_conditions",
+      "override": false,
+      "override_reason": null,
+      "outcome": "In planning. Gap analysis complete. Day-by-day execution plan scoped."
+    }
+  ]
+}

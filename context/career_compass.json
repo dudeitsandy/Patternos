@@ -1,0 +1,171 @@
+{
+  "version": 3.1,
+  "last_updated": "2026-04-04",
+
+  "non_negotiables": [
+    {
+      "rule": "Remote-first or hybrid with meaningful flexibility",
+      "why": "Location autonomy enables deep work, parenting presence, physical training consistency, and creative output. I like meeting people in person, but have been doing remote for so long that i have become very good and effective at building and maintaining authentic relationships not bound to specific work products or outcomes",
+      "hard_stop": true
+    },
+    {
+      "rule": "No roles that require hiding or suppressing technical depth",
+      "why": "Hands-on building is a cognitive requirement, not a preference. Pure coordination roles degrade performance and motivation. I work best when tied to a strategic leader that needs tactical support in terms of strategy, messaging, management, technical execution",
+      "hard_stop": true
+    },
+    {
+      "rule": "Ghostweave Labs stays active",
+      "why": "Independent creation is structural to identity and long-term leverage. regardless of job i will always be chasing side hustles to help people, learn new skills, and build new products",
+      "hard_stop": true
+    },
+    {
+      "rule": "Compensation must maintain Coast FIRE trajectory",
+      "why": "Financial independence is an active objective; I am 45 now with 800k in individual network and around $2M family net worth. comp must support autonomy timeline. I am currently on track to retire at age 50 and have a lot of time to build my own products and services to help people",
+      "hard_stop": true
+    },
+    {
+      "rule": "Role must allow artifact creation (systems, products, frameworks)",
+      "why": "Output must exist as durable objects, not ephemeral meetings or slideware. I am looking to get roles that let me deliver, experiment, and partner with doers",
+      "hard_stop": true
+    },
+    {
+      "rule": "Access to technical peers or engineering partnership",
+      "why": "Isolation from builders leads to strategy theater instead of shipped systems.",
+      "hard_stop": true
+    }
+  ],
+
+  "direction_3yr": {
+    "narrative": "Daily work consists of designing and shipping systems that combine data, AI, and human workflow design. Time is split between a focused primary role that values applied systems thinking and an independent studio producing software, games, or analytical tools. Calendar contains large uninterrupted blocks for creation. Income structure supports optionality rather than dependence. Work feels like constructing useful artifacts rather than maintaining organizational theater.",
+    "markers": [
+      "Principal or architect-level builder role focused on systems that enable decisions, automation, or insight generation",
+      "Ghostweave Labs producing meaningful revenue through products, tools, or consulting",
+      "At least one shipped creative artifact (game, narrative work, or software product) with real users",
+      "Work schedule structurally protects uninterrupted build time"
+    ]
+  },
+
+  "good_work_feels": {
+    "description": "Work produces visible artifacts, reduces ambiguity for others, and improves systems people actually use.",
+    "markers": [
+      "Designing systems that unify messy human processes with technical infrastructure",
+      "Transforming ambiguous problems into structured models or tools",
+      "Shipping interfaces, frameworks, or agents that improve decision velocity",
+      "Operating across abstraction layers: architecture, data model, workflow, interface",
+      "Working with competent operators who value clarity over theater"
+    ],
+    "anti_markers": [
+      "Endless roadmap cycles disconnected from implementation",
+      "Metrics production without real behavioral or product change",
+      "Coordination roles where output is persuasion rather than construction",
+      "Performative strategy work optimized for visibility instead of outcomes",
+      "Contexts dominated by OKR compliance rather than system improvement",
+      "KR and KPI cultures that generate vanity projects rather than real deliverables",
+      "Analytics theater — engagement dashboards and performance management analyses that get cancelled without data-backed decisions"
+    ],
+    "reference_question": "Does this produce something that exists independently of the organization?"
+  },
+
+  "edge": {
+    "description": "Intersection of systems architecture, data modeling, product thinking, and applied AI focused on human decision environments.",
+    "statement": "Designs and builds decision systems that connect data infrastructure, human workflows, and usable interfaces. Operates across the full stack of analytical systems: schema design, metric logic, workflow integration, UI structure, and AI augmentation. Translates ambiguous organizational problems into structured models that can be implemented technically. Able to prototype functional artifacts quickly while maintaining long-term architectural coherence.",
+    "components": [
+      "Can design canonical data models and immediately map them to real user workflows",
+      "Combines product intuition with data engineering depth to ship usable analytical tools",
+      "Builds AI-assisted systems grounded in real operational constraints rather than demos",
+      "Has executed high-stakes operational work (RIF operationalization, payroll system integrity, Workday automation) at scale — not just advisory analytics",
+      "Designed and deployed production AI systems serving large employee populations (Teams-embedded Workday assistant at GM)",
+      "Experienced in designing 'measurement framework ecosystems' for strategic organizational alignment",
+      "Maintain Ghostweave brand identity: dark navy/teal palette, human/dry voice, no AI tells"
+    ]
+  },
+
+  "personality_facts": [
+    {
+      "fact": "Needs autonomy over problem framing",
+      "implication": "Performance degrades when limited to executing predefined specifications disconnected from observed reality."
+    },
+    {
+      "fact": "Works best in long uninterrupted blocks",
+      "implication": "High-meeting environments produce cognitive fragmentation and shallow output."
+    },
+    {
+      "fact": "Maintains parallel creative tracks",
+      "implication": "Creative output stabilizes motivation and improves technical problem solving."
+    },
+    {
+      "fact": "High tolerance for ambiguity when paired with agency",
+      "implication": "Thrives in undefined environments if allowed to construct structure."
+    },
+    {
+      "fact": "Strong aversion to institutional theater",
+      "implication": "Cultures optimized for optics over substance cause rapid disengagement."
+    },
+    {
+      "fact": "Energized by consequential operational work, not just analytical insight production",
+      "implication": "Roles closest to execution (RIF ops, system automation, production deploys) tend to feel most meaningful. Analytics that never touches decisions is demotivating."
+    },
+    {
+      "fact": "Identifies with the Ken Miles archetype — only energized by building real, usable things",
+      "implication": "Orgs that reward performative output over substantive work cause rapid identity misalignment and disengagement."
+    },
+    {
+      "fact": "Strong foundational learning background — started operationally (Verizon call centers, 2000) and built analytical capability from proximity to consequences",
+      "implication": "Has practical judgment baked from high-feedback environments, not just academic or certification pathways. Learns by doing, not by consuming."
+    }
+  ],
+
+  "active_opportunities": {
+    "note": "Current interview and application activity. Update as status changes.",
+    "in_process": [
+      {
+        "role": "Analytics Engineering / Platform Lead",
+        "company": "Expel",
+        "status": "Active interviewing — stakeholder conversation with Steven Bowen (FP&A Manager) in progress",
+        "notes": "Strong alignment on dbt, BigQuery, AWS, Domo stack. Key stakeholder pain points: unknown dataset lineage behind Domo cards, filter misalignment producing inconsistent numbers. 90-day win sequence designed: lineage documentation (30d), canonical definition workshop (60d), semantic layer foundation (90d)."
+      },
+      {
+        "role": "Senior Director, Data Workforce Insights & Systems",
+        "company": "Northwestern Mutual",
+        "status": "Early stage — recruiter-initiated, applied, formal interviews not yet scheduled",
+        "notes": "Strong technical fit (Workday, Tableau, Power BI, dbt, Databricks, Python, Airflow). Key gap: HR Operations and shared services leadership experience undersold. In-office expectation once or twice per month (Milwaukee). Compensation band wide — anchor toward upper half."
+      }
+    ],
+    "recently_applied": [
+      {
+        "role": "Director, People Operations & Analytics",
+        "company": "Mercury Insurance",
+        "notes": "Resume tailored. Fit assessed at 75-80%. Significant gap: HR ops and shared services leadership not primary background."
+      },
+      {
+        "role": "Lead People Data Scientist",
+        "company": "Lululemon",
+        "notes": "Applied with tailored materials."
+      }
+    ]
+  },
+
+  "current_role_context": {
+    "note": "Snapshot used by FILTER for load calculation.",
+    "primary": "Head of People Data, Analytics at Scale — Atlassian",
+    "primary_context": "People Insights team. Building star schema / people core data model (worker, position, dim/fact/ref tables). Significant org friction: over-engineered platform review processes, data mesh architecture friction against foundational star schema work. Executed RIF operationalization for ~1,600-person layoff (loaded impacted lists to Workday and payroll). Own team partially impacted by cuts.",
+    "consultancy": "Ghostweave Labs — active development studio and consulting entity",
+    "active_search": true,
+    "search_target": "Principal-level IC or small team lead roles focused on applied AI, analytics systems, or decision infrastructure at product-oriented companies"
+  },
+
+  "filter_instructions": {
+    "step_1": "Check non_negotiables — any hard_stop match = immediate decline",
+    "step_2": "Score direction_3yr alignment 0-3",
+    "step_3": "Score edge alignment 0-3",
+    "step_4": "Adjust for current_load",
+    "step_5": "Score financial or strategic leverage 0-2",
+    "step_6": "Score gut signal 0-2",
+    "thresholds": {
+      "10-12": "Pursue actively",
+      "7-9": "Pursue with conditions",
+      "5-6": "Defer",
+      "0-4": "Decline"
+    }
+  }
+}
