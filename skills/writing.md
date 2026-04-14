@@ -115,7 +115,23 @@ Precision over personality. Clear structure. No voice flourishes — just accura
 
 ---
 
-## What Good Looks Like
+## Using AI in Writing (Dylan Field approach)
+
+AI is useful for writing but not as a generator of final output. Treat it as clay.
+
+**The blank page problem:** When starting a piece of writing, use AI to surface the 10 most obvious, clichéd ways to say the thing. Almost never use any of them directly. The purpose is to get the brain moving — seeing what's generic makes it easier to find what's not.
+
+**The process:**
+- Ramble-type the incoherent version of what you're trying to say
+- Ask for obvious/cliché framings to react against
+- Use the reaction to find the actual point of view
+- Write from there — the AI output is the clay, not the result
+
+**Point of view in writing:**
+If you're writing something longer form, you should be trying to say something that hasn't been said before, or at least expressing a point of view that is genuinely yours. If the AI output says it adequately, you haven't found your point of view yet. Keep pushing.
+
+**The craft standard:**
+A piece of writing is done when removing any sentence makes it worse and adding any sentence adds nothing. AI gets you to average fast. Craft is what pushes past it.
 
 A piece of writing is done when:
 - It says one thing clearly

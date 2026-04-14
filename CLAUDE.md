@@ -221,6 +221,7 @@ Things on my mind right now — useful for LOOM, SCOUT context, and creative rou
 - **Arches Half Marathon** — October race, Moab UT, secondary health goal
 - **Coast FIRE at 45** — actively tracking, on trajectory
 - **Jazz licks / music theory** — 50 jazz licks study; music identity thread reactivating
+- **Taste vs Craft vs Point of View** (Dylan Field / Figma CEO transcript) — three distinct skills: taste is judgment over the possibility space, craft is pushing past where others stop at every abstraction level, point of view is the unique insight that gets you to global vs local maximum. AI gets you to average fast — treat output as clay, not result. Divergence/convergence model applies to all creative work, not just design.
 
 ---
 
