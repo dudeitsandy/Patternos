@@ -155,15 +155,17 @@ Any opportunity that violates any of these = immediate decline, no scoring neede
 
 ## Active Projects (summary — current_load.json has full detail)
 
-- **Atlassian People Core** — star schema build, navigating platform friction
+- **Atlassian People Core** — star schema build; intentionally depressurized mode (40 hrs, good work, no heroics)
 - **ShipIt 62** — TeamFlow hackathon pitch, April 16-20
+- **Ghostweave Labs — Revenue Test** — serious 3-4 year test; $60-80k/year target; September 2026 checkpoint
 - **Ghostweave Intel** — BC cannabis CRM for Scott Renouf, BCLDB data integration next
-- **CreatorOS** — B2B creator CRM co-founder with Noelle, Telegram MVP wired up
+- **CreatorOS** — loose co-founder collaboration with Noelle; keep low-key while she's a direct report
 - **PatternOS** — this system, in active design
-- **Job search** — Expel (active interviews) + Northwestern Mutual (early stage)
-- **Health rebuild** — Milwaukee Half April 18, Arches Half October 10
+- **Health rebuild** — Milwaukee Half April 18, 6-week training program started April 13, Arches Half October 10
 - **Talenode** — active advisory role
 - **Liminal Protocol** — background creative thread
+
+**Job search: closed.** Expel declined (validation-seeking, $79k cut not justified). NW Mutual withdrawn (same burnout pattern as prior roles). Career direction resolved: stay W2, build Ghostweave seriously, decide at September 2026 checkpoint.
 
 ---
 

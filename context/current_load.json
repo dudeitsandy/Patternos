@@ -1,11 +1,11 @@
 {
-  "version": 3.1,
-  "last_updated": "2026-04-04",
+  "version": 3.2,
+  "last_updated": "2026-04-13",
   "updated_by": "model_inferred_from_conversations",
 
   "active_projects": {
-    "count": 11,
-    "note": "Atlassian core + Ghostweave client work + CreatorOS co-founder build + PatternOS personal OS design + job search (2 active threads) + health training rebuild + creative exploration + Atlassian ShipIt hackathon + Liminal Protocol worldbuilding + Talenode Advisory",
+    "count": 9,
+    "note": "Atlassian core + ShipIt 62 hackathon + Ghostweave client work + CreatorOS + Ghostweave revenue test (serious 3-4yr) + Talenode advisory + PatternOS + health training rebuild + Liminal Protocol. Job search closed (Expel declined, NW Mutual withdrawn). Energy freed for Ghostweave.",
     "detail": [
       {
         "name": "Atlassian — People Core Data Model",
@@ -46,16 +46,11 @@
         "status": "active_design"
       },
       {
-        "name": "Job Search — Expel",
-        "domain": "career",
-        "description": "Analytics Engineering / Platform Lead. Active interview process. Stakeholder conversation with Steven Bowen (FP&A Manager) in preparation. Key platform: dbt, BigQuery, AWS, Domo.",
-        "status": "active"
-      },
-      {
-        "name": "Job Search — Northwestern Mutual",
-        "domain": "career",
-        "description": "Senior Director, Data Workforce Insights & Systems. Recruiter-initiated. Applied. Formal interviews not yet scheduled.",
-        "status": "early"
+        "name": "Ghostweave Labs — Revenue Test",
+        "domain": "ghostweave",
+        "description": "Serious 3-4 year test of whether Ghostweave can generate $60-80k/year revenue. Not a side interest — a real business test running parallel to Atlassian W2. 5-10 hours/week dedicated. September 2026 is the first checkpoint: is revenue trajectory real? If yes, plan a W2 transition. If no, stay W2 indefinitely and use data to decide. This is the alternative to the job search treadmill.",
+        "status": "active",
+        "checkpoint": "September 2026 — revenue hitting $60-80k/year annualized?"
       },
       {
         "name": "Health Rebuild — Running",
@@ -79,26 +74,27 @@
   },
 
   "capacity_used": {
-    "percent": 88,
-    "note": "At or near overload threshold. Job search active on two threads plus hackathon added since last assessment. New commitments require displacement, not addition.",
+    "percent": 78,
+    "note": "Job search closed — Expel declined, NW Mutual withdrawn. That 10% is now allocated to Ghostweave revenue test. Atlassian intentionally depressurized: 40 hours, good work, no heroics. ShipIt 62 (April 16-20) is a short-term spike. Overall load is lower than April 4 baseline.",
     "breakdown": {
-      "atlassian": "50%",
-      "ghostweave": "20%",
-      "job_search": "10%",
-      "personal_projects": "8%"
+      "atlassian": "45%",
+      "ghostweave": "25%",
+      "health_training": "5%",
+      "personal_projects": "3%"
     }
   },
 
   "energy_level": "medium",
 
+  "atlassian_mode": "depressurized",
+  "atlassian_mode_note": "Intentional shift. Work 40 hours. Do good work without heroics. Don't try to be indispensable. Let directs own their priorities. Stop taking personal responsibility for structural failures. Frame: CYA — do the job, don't save the world. RSU vests continue through Nov 2027 (~$197k unvested). Keep collecting until they make you go away.",
+
   "open_decisions": {
-    "count": 5,
+    "count": 3,
     "items": [
-      "Career direction: Expel vs Northwestern Mutual vs stay at Atlassian — which path to prioritize",
-      "Ghostweave scope boundary: productized tooling vs consulting-only vs hybrid",
-      "CreatorOS partnership structure with Noelle: co-founders, build-for-hire, or advisor",
-      "Ghostweave Intel engagement model with Scott: fixed scope vs retainer vs hybrid",
-      "Creative output channel prioritization: Liminal Protocol vs game dev vs other"
+      "Ghostweave scope boundary: productized tooling vs consulting-only vs hybrid — test both via revenue test",
+      "CreatorOS partnership structure with Noelle: co-founders, build-for-hire, or advisor — keep loose while she's a direct report",
+      "Ghostweave Intel engagement model with Scott: fixed scope vs retainer vs hybrid"
     ]
   },
 
@@ -109,5 +105,12 @@
     "flag_decision_backlog": "open_decisions.count > 3"
   },
 
-  "weekly_notes": "Operating at or above sustained load ceiling. Two active job search threads plus imminent half marathon plus hackathon prep running simultaneously. ShipIt 62 window (April 16-20) will spike Atlassian load short-term. Milwaukee Half on April 18 is a hard calendar anchor. New commitments require displacement."
+  "september_2026_checkpoint": {
+    "question": "Can Ghostweave Labs (all projects combined) generate $60-80k/year revenue?",
+    "if_yes": "Real exit path exists. Plan part-time W2 + full-time indie, or full indie transition.",
+    "if_no": "Stay W2 indefinitely. Use the data to recalibrate scope — not a failure, just information.",
+    "metrics_to_track": ["Ghostweave revenue (monthly)", "Hours on Ghostweave per week", "Stress spending trend", "Energy/mood (qualitative)", "Atlassian stability signal"]
+  },
+
+  "weekly_notes": "Job search closed. Career direction resolved: stay at Atlassian, test Ghostweave seriously, September checkpoint. ShipIt 62 (April 16-20) is a short-term load spike. Milwaukee Half (April 18) is imminent. New 6-week training program started April 13. Therapy work ongoing on validation pattern and identity. Depressurizing at Atlassian — this is a feature, not a bug."
 }

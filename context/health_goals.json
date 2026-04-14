@@ -1,6 +1,6 @@
 {
-  "version": 4.1,
-  "last_updated": "2026-04-04",
+  "version": 4.2,
+  "last_updated": "2026-04-13",
   "note": "Health goals context. Primary objective: restore durable running capacity without reinjury. Running is primary psychological stabilizer and identity anchor.",
 
   "running": {
@@ -21,6 +21,34 @@
     "psychological_note": "Running is the primary emotional regulation mechanism and forward-motion signal. Missed runs accumulate as psychological debt faster than physical detraining. Minimum viable movement during high-load work periods matters more than optimal training."
   },
 
+  "active_program": {
+    "name": "6-Week Periodized Lifting + Boxing + Running",
+    "start_date": "2026-04-13",
+    "end_date": "2026-05-24",
+    "frequency": "5 days/week",
+    "structure": {
+      "monday": "Lower strength + Boxing (45 min lift, 20 min bag)",
+      "tuesday": "Easy run + Mobility (25-30 min Zone 2)",
+      "wednesday": "Upper strength + Boxing (45 min lift, 20 min bag)",
+      "thursday": "Run intervals + Technique work",
+      "friday": "Full body + Boxing finisher"
+    },
+    "phases": {
+      "weeks_1_2": "Strength Base — heavy compounds, moderate conditioning",
+      "weeks_3_4": "Hypertrophy + Conditioning — higher volume, increased boxing intensity",
+      "weeks_5_6": "Peaking — heavy singles/doubles, boxing at 85%+, deadlift PR attempt"
+    },
+    "rationale": "Mirrors CrossFit 2012-2015 structure that drove sustained commitment: three distinct stimulus buckets (strength, skill/power, endurance), multiple progress vectors (bar numbers, technique, conditioning times), built-in variety prevents boredom.",
+    "calendar": "Google Calendar events added for all 30 sessions (Apr 13 - May 24), 6:00 AM start"
+  },
+
+  "boxing": {
+    "modality": "heavy bag + technique work",
+    "equipment": "wavemaster (garage) + gym speed bag if available",
+    "weekly_sessions_target": 3,
+    "notes": "Boxing is the CrossFit-analogue separator — different enough from lifting to not cannibalize recovery, engaging enough that it doesn't feel like conditioning. Skill progression track alongside conditioning benefit. Integrated into Mon/Wed/Fri training days."
+  },
+
   "cardio_cross_training": {
     "primary_tools": [
       "Peloton bike",
@@ -32,8 +60,8 @@
   },
 
   "strength": {
-    "sessions_per_week_target": 2,
-    "current_focus": "injury resilience",
+    "sessions_per_week_target": 3,
+    "current_focus": "strength base building (Weeks 1-2), hypertrophy (Weeks 3-4), peaking (Weeks 5-6)",
     "available_equipment": [
       "garage rack",
       "barbell set",
@@ -45,7 +73,7 @@
       "wavemaster",
       "Libertyville Center Club access"
     ],
-    "notes": "Prior 6 years CrossFit experience. Preference for compound lifts and simple repeatable templates. Emphasis on posterior chain, calf capacity, hip stability, core stiffness, shoulder alignment. Avoid high complexity programming overhead."
+    "notes": "Prior 6 years CrossFit experience. Preference for compound lifts and simple repeatable templates. Emphasis on posterior chain, calf capacity, hip stability, core stiffness, shoulder alignment. New program: barbell compounds (squat, bench, deadlift, rows) as primary movements. Garage bar for heavy work, gym for accessories."
   },
 
   "mobility_rehab": {

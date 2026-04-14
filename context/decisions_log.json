@@ -140,6 +140,52 @@
       "override": false,
       "override_reason": null,
       "outcome": "In planning. Gap analysis complete. Day-by-day execution plan scoped."
+    },
+    {
+      "id": "DEC-007",
+      "date": "2026-04-12",
+      "opportunity": "Expel Analytics Engineering / Platform Lead — accept vs decline offer",
+      "type": "job",
+      "source": "active interview process — reached offer stage",
+      "filter_score": {
+        "direction_alignment": 3,
+        "edge_alignment": 3,
+        "load_sustainability": 2,
+        "financial_leverage": 1,
+        "gut_signal": 2,
+        "total": 11,
+        "load_modifier_applied": true
+      },
+      "non_negotiable_violated": "Compensation must maintain Coast FIRE trajectory",
+      "filter_verdict": "decline",
+      "filter_reasoning": "Offer would be ~$195k base, max $210k negotiated. That's a $79-82k/year cut vs. Atlassian total comp of $375k. As primary income earner with wife not working, this isn't abstract — it directly impacts household security. Work sounds interesting and people are good, but it's not a dream company. Validation high from being chosen nearly overrode the financial reality. Therapist framing: 'Why switch for a pay cut for something that isn't a dream company? Just keep getting paid until they make you go away.' The correct insight: the interest in Expel was 80% validation-seeking, 20% actual fit.",
+      "your_decision": "decline",
+      "override": false,
+      "override_reason": null,
+      "outcome": "Declined. Left door open gracefully. Core learning: identified the validation loop pattern — chasing the high of being chosen rather than evaluating actual fit. This pattern has been operating across multiple job searches."
+    },
+    {
+      "id": "DEC-008",
+      "date": "2026-04-12",
+      "opportunity": "Northwestern Mutual Senior Director, Data Workforce Insights & Systems — continue vs withdraw",
+      "type": "job",
+      "source": "recruiter outreach — early stage, interviews not yet scheduled",
+      "filter_score": {
+        "direction_alignment": 1,
+        "edge_alignment": 2,
+        "load_sustainability": 2,
+        "financial_leverage": 2,
+        "gut_signal": 1,
+        "total": 8,
+        "load_modifier_applied": true
+      },
+      "non_negotiable_violated": null,
+      "filter_verdict": "decline",
+      "filter_reasoning": "After Expel clarity session, recognized that Senior Director roles at large financial institutions replicate the exact burnout pattern: politics, roadmapping, governance, sustaining work, visibility games. The title and comp are attractive but the actual work content is misaligned with what actually energizes. More of the same that has burned out at every prior employer.",
+      "your_decision": "withdraw",
+      "override": false,
+      "override_reason": null,
+      "outcome": "Withdrew from process. Not pursuing further director-track roles at large orgs. Reorienting: stay at Atlassian, test Ghostweave Labs seriously for 3-4 years, reassess at September 2026 checkpoint."
     }
   ]
 }
