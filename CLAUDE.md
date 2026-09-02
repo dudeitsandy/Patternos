@@ -23,9 +23,15 @@ Currently: Head of People Data & Analytics at Atlassian. Also running Ghostweave
 
 ## Cognitive Profile
 
-*Source: Personal OS psychological profile. Use this to calibrate tone, task framing, and output type.*
+*Source: Personal OS psychological profile + personality assessments. Use this to calibrate tone, task framing, and output type.*
 
 **Core orientation:** Builder of systems that reduce friction between people and complex information. High agency in ambiguous environments. Low motivation when maintaining optics-driven structures that don't improve outcomes. Primary identity driver: constructing tools, models, or experiences that persist beyond organizational cycles.
+
+**Personality framework:**
+- MBTI: INFP-T — internal values and narrative coherence over external status. Strong exploratory intuition, symbolic and pattern-based thinking. Under stress: self-doubt, over-processing, withdrawal, oscillation between confidence and disengagement. Note: operational execution capability (RIF ops, production deploys, client MVPs under pressure) is stronger than typical INFP — the 3 wing and early operational career created an execution layer on top of the INFP base.
+- Enneagram: 7 with strong 3 and 5 influences — core drive is freedom and avoiding entrapment. 3 wing adds competence drive and performance awareness. 5 wing adds guardedness, retreat into analysis, and energy protection under stress.
+- CliftonStrengths: Ideation, Strategic, Individualization, Adaptability, Learner — cross-domain synthesis, sees paths and tradeoffs quickly, reads people well, resists one-size-fits-all, needs ongoing learning to stay engaged.
+- Big Five profile: Mentor / I-SD — warm and influential without wanting heavy hierarchy, human-centered but not built for rigid corporate performance theater.
 
 **Thinking style:**
 - First-principles decomposition, schema-oriented reasoning
@@ -34,6 +40,7 @@ Currently: Head of People Data & Analytics at Atlassian. Also running Ghostweave
 - Synthesizes across domains (product, data, UX, AI, org behavior)
 - Identifies latent variables driving surface problems
 - Builds pragmatic bridges between theory and implementation
+- Intuitive first, then structured — often sees correct direction early but may delay speaking if environment feels unsafe
 
 **Known biases to account for:**
 - Intolerance for performative work — can disengage from environments before signaling it
@@ -43,18 +50,28 @@ Currently: Head of People Data & Analytics at Atlassian. Also running Ghostweave
 - Autonomy preference can reduce visible alignment signaling (looks disengaged when actually building)
 - Context switching cost is real — Ghostweave + advisory + creative + day job require active gating or burnout follows
 - "Labubu trap" — visceral dislike for trend-chasing or hype-driven things that lack technical or narrative depth; if it's purely aesthetic without craft, it's a distraction
+- Under stress (5 wing): retreats into analysis and system design rather than executing — PatternOS itself can become a stress response if not watched
 
 **Motivational triggers (engage these):**
 - Creating reusable frameworks and intermediate layers that give others leverage
 - Transforming messy inputs into structured outputs
 - Exploratory prototyping in constraint-tolerant environments
 - Synthesis of qualitative + quantitative signals
+- Work with visible human value — not abstract "impact" language
+- Creation without immediate monetization or performance pressure
 
 **Motivation killers (flag these):**
 - Repeated explanation of obvious structural problems to resistant audiences
 - Dashboard maintenance without clear decision pathways
 - Bureaucratic validation cycles before experimentation is allowed
 - Optimization of presentation layers without structural improvement
+- KR/OKR theater, excessive meetings, roadmap churn, impact theater
+- Environments where everything must be measured, labeled, or turned into output
+
+**The aliveness check (use this before FILTER scores anything):**
+> Is this alive or merely acceptable?
+
+The pattern to watch: roles that start aligned and gradually become the thing you were hired to fix rather than the work itself. Each transition in your career (Verizon → Meta → GM → Atlassian) followed this arc. The question isn't just "does this fit my values" but "will this feel like construction or performance in 18 months?" Work that is merely acceptable — stable but hollow — is the failure mode to avoid. "Trading heroes for ghosts" — replacing living values with socially acceptable but hollow substitutes — is the specific risk.
 
 **Interest escalation pattern:**
 Signal detection → schema extraction → constraint exploration → synthesis attempt → integration or archive.
@@ -66,14 +83,17 @@ Commitment increases when knowledge compounds, tooling allows rapid iteration, a
 - Replacing exploration with passive consumption
 - Loss of physical calibration routines (running, strength)
 - Treating identity as role rather than capability set
+- All hobbies becoming monetized obligations
+- Solving life so completely it becomes emotionally dead
 
 **Stabilizing constraints (enforce these):**
 - Publish small artifacts regularly — visible build log independent of employer
 - Maintain at least one physical practice at all times
 - Limit concurrent active domains
 - Prefer end-to-end ownership over narrow specialization
+- Anti-substitution check: is this alive or merely acceptable?
 
-**Identity vector:** Generalist systems thinker oriented toward durable structures that improve how humans interact with information, decisions, and creative tools. Prefers building small coherent systems over managing large symbolic ones. Motivated by clarity, leverage, and independence of thought.
+**Identity vector:** Generalist systems thinker oriented toward durable structures that improve how humans interact with information, decisions, and creative tools. Prefers building small coherent systems over managing large symbolic ones. Motivated by clarity, leverage, and independence of thought. Success means stability without deadening, freedom without collapse, meaningful work without becoming consumed by it.
 
 ---
 

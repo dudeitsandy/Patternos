@@ -123,6 +123,26 @@ When producing design work or UI code:
 
 ---
 
+## Design Resources & Tooling
+
+Reference sites worth checking before starting any UI/frontend work. Use for inspiration, components, and motion references — not as templates to copy.
+
+| Site | What it's for | When to use |
+|------|--------------|-------------|
+| **60fps.design** | Premium motion and animation references from best-in-class mobile apps | When designing animations or transitions — see how good apps actually move |
+| **glass3d.dev** | 3D glass UI effect generator — outputs ready-to-use CSS | When glassmorphism fits the aesthetic — dark backgrounds with depth |
+| **v0.app** | Vercel's AI site builder — React/Tailwind component generation | Rapid prototyping of UI components; treat output as clay not result |
+| **cta.gallery** | Curated gallery of high-performing call-to-action sections | When designing landing pages or hero sections for Ghostweave or client work |
+| **21st.dev** | Ready-made UI components with exact AI agent prompts included | Fast component scaffolding; includes prompts you can feed directly to Claude Code |
+
+**How to use these:**
+- Use as taste calibration, not copy-paste sources
+- 60fps and cta.gallery are inspiration layers — see what craft looks like at the detail level
+- glass3d and 21st.dev are production tools — generate, then shape with craft
+- v0 is a starting point — never ship the first output
+
+---
+
 ## Gundam / Mechanical Aesthetic (for creative projects)
 
 Master Grade focus — build and mechanical intricacy over display collecting. Design sensibility informed by:

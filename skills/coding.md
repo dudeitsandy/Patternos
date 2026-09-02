@@ -59,6 +59,7 @@
 - Ship imperfect working code over perfect unshipped code
 - Comments explain why, not what
 - Never add a dependency for something that can be done in 10 lines
+- AI output is clay, not result — treat generated code as a starting point to shape, not a solution to accept
 
 ---
 
@@ -103,3 +104,39 @@ When producing code:
 - For people analytics work: always validate against star schema — worker and position are canonical entities
 - When building for non-technical clients: single-file, no build step, drag-and-drop deploy
 - Game dev in Unity uses C#. Game dev in Godot uses GDScript. Don't mix.
+
+---
+
+## Claude Code Behavior (Karpathy Principles)
+
+Four rules for reducing the most common AI coding failure modes. Apply these on any non-trivial task.
+
+**1. Think Before Coding**
+State assumptions explicitly before writing a line. If the request is ambiguous, surface the interpretations and ask — don't pick one silently and run with it. Push back when a simpler approach exists. Stop and name what's unclear rather than guessing through it.
+
+**2. Simplicity First**
+Minimum code that solves the problem. Nothing speculative.
+- No features beyond what was asked
+- No abstractions for single-use code
+- No "flexibility" or "configurability" that wasn't requested
+- If 200 lines could be 50, rewrite it
+- Test: would a senior engineer call this overcomplicated? If yes, simplify.
+
+**3. Surgical Changes**
+Touch only what the request requires.
+- Don't improve adjacent code, comments, or formatting that wasn't part of the ask
+- Don't refactor things that aren't broken
+- Match existing style even if you'd do it differently
+- If unrelated dead code is noticed, mention it — don't delete it
+- Clean up only what your own changes made orphaned (unused imports, variables, functions)
+- Every changed line should trace directly to the request
+
+**4. Goal-Driven Execution**
+Transform tasks into verifiable success criteria, then loop until met.
+- Instead of "add validation" → "write tests for invalid inputs, then make them pass"
+- Instead of "fix the bug" → "write a test that reproduces it, then make it pass"
+- For multi-step tasks: state a brief plan with a verify step for each item
+- LLMs loop well toward specific goals — weak criteria ("make it work") require constant clarification; strong criteria let the agent run independently
+
+**The key Karpathy insight:**
+Don't tell it what to do. Give it success criteria and watch it go.

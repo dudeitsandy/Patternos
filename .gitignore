@@ -3,3 +3,4 @@ claudeupdates/
 *.log
 .DS_Store
 Thumbs.db
+.claude/
